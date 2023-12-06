@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
 	mode: "production", // or 'development' for debugging
-	entry: "./index.ts",
+	entry: "./src/lib/index.ts",
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		filename: "index.js",
@@ -18,6 +18,11 @@ module.exports = {
 				exclude: /node_modules/,
 				use: "babel-loader",
 			},
+			// {
+			// 	test: /\.tsx?$/,
+			// 	use: "ts-loader",
+			// 	exclude: /node_modules/,
+			// },
 		],
 	},
 	resolve: {

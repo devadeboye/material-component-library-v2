@@ -14,7 +14,7 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "react-jsx",
-		"outDir": "dist",
+		"outDir": "./dist",
 		"emitDeclarationOnly": true,
 		"declaration": true,
 		"baseUrl": ".",
@@ -22,6 +22,12 @@
 			"react": ["node_modules/react"]
 		}
 	},
-	"include": ["src/**/*.tsx", "src/**/*.ts"],
-	"exclude": ["src/**/*.test.tsx", "src/**/*.test.ts", "src/app.tsx", "src/index.tsx"]
+	"include": ["src/lib/**/*.tsx", "src/lib/**/*.ts"],
+	// "include": ["src/**/*.tsx", "src/**/*.ts"],
+	"exclude": [
+		"src/**/*.test.tsx",
+		"src/**/*.test.ts",
+		"src/app.tsx",
+		"src/index.tsx"
+	]
 }
