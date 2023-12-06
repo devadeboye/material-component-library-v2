@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import {
-	SegmentedButton,
-	SegmentedButtonSizeEnum,
-	SegmentedButtonState,
+
+import SegmentedButton, {
 	SegmentedButtonStyleEnum,
-} from "./lib";
+	SegmentedButtonSizeEnum,
+} from "./lib/Button/SegmentedButton";
 
 function App() {
-	const [activeButton, setActiveButton] = useState<SegmentedButtonState>({
+	// const [activeButton, setActiveButton] = useState<SegmentedButtonState>({
+	// 	first: true,
+	// 	second: false,
+	// 	third: false,
+	// 	fourth: false,
+	// 	fifth: false,
+	// });
+	const [activeButton, setActiveButton] = useState({
 		first: true,
 		second: false,
 		third: false,

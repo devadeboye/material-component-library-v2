@@ -1,5 +1,4 @@
 import React from "react";
-import "../../index.css";
 import { SegmentedButtonState } from "./interfaces/button.interface";
 
 export enum SegmentedButtonSizeEnum {
@@ -23,7 +22,9 @@ export interface SegmentedButtonProps {
 	style?: SegmentedButtonStyleEnum;
 	activeButtonColour?: string;
 	buttonState: SegmentedButtonState;
-	buttonStateUpdater: React.Dispatch<React.SetStateAction<SegmentedButtonState>>;
+	buttonStateUpdater: React.Dispatch<
+		React.SetStateAction<SegmentedButtonState>
+	>;
 	buttonsConfiguration: {
 		firstButton: {
 			name: string;
@@ -106,14 +107,6 @@ function SegmentedButton({
 	buttonState,
 	buttonStateUpdater,
 }: SegmentedButtonProps) {
-	// const [activeButton, setActiveButton] = useState({
-	// 	first: true,
-	// 	second: false,
-	// 	third: false,
-	// 	fourth: false,
-	// 	fifth: false,
-	// });
-
 	const gridColumns =
 		size === SegmentedButtonSizeEnum.three
 			? "grid-cols-3"
