@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-// import {
-// 	SegmentedButton,
-// 	SegmentedButtonSizeEnum,
-// 	// SegmentedButtonState,
-// 	SegmentedButtonStyleEnum,
-// } from "./lib";
 
-import {
-	SegmentedButton,
-	SegmentedButtonSizeEnum,
-	// SegmentedButtonState,
+import SegmentedButton, {
 	SegmentedButtonStyleEnum,
-} from "./lib/Button";
+	SegmentedButtonSizeEnum,
+} from "./lib/Button/SegmentedButton";
 
 function App() {
 	// const [activeButton, setActiveButton] = useState<SegmentedButtonState>({
