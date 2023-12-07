@@ -20,6 +20,11 @@ function App() {
 		fourth: false,
 		fifth: false,
 	});
+	const [textFieldState, setTextFieldState] = useState({
+		focused: false,
+		changed: false,
+	});
+
 	const histories = [
 		{
 			name: "Babe home - macbook and phones - 10 hours",
@@ -251,6 +256,7 @@ function App() {
 					className="my-2"
 					onBlur={(event) => {}}
 					value="ApplianceName"
+					state={{ value: textFieldState, setValue: setTextFieldState }}
 				/>
 			</div>
 		</div>

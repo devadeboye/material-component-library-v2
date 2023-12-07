@@ -19,6 +19,18 @@ interface TextFieldProps {
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	value?: string | number;
+	state: {
+		value: {
+			focused: boolean;
+			changed: boolean;
+		};
+		setValue: React.Dispatch<
+			React.SetStateAction<{
+				focused: boolean;
+				changed: boolean;
+			}>
+		>;
+	};
 }
 
 /**
@@ -27,25 +39,32 @@ interface TextFieldProps {
  * @returns textfield jsx element
  */
 const TextField = (props: TextFieldProps) => {
+	const { changed, focused } = props.state.value;
 	// TODO handle hover effect on text field according to google's spec
-	const [focused, setFocused] = useState(false);
-	const [changed, setChanged] = useState(false);
 
 	function textFieldFocusedHandler() {
-		setFocused(true);
+		props.state.setValue((prevState) => {
+			return { ...prevState, focused: true };
+		});
 	}
 
 	function textFieldBlurHandler(event: React.FocusEvent<HTMLInputElement>) {
-		setFocused(false);
+		props.state.setValue((prevState) => {
+			return { ...prevState, focused: false };
+		});
 		if (props.onBlur) props.onBlur(event);
 	}
 
 	function textFieldChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
 		const input = event.target.value;
 		if (input === "") {
-			setChanged(false);
+			props.state.setValue((prevState) => {
+				return { ...prevState, changed: false };
+			});
 		} else {
-			setChanged(true);
+			props.state.setValue((prevState) => {
+				return { ...prevState, changed: true };
+			});
 		}
 		if (props.onChange) props.onChange(event);
 	}
