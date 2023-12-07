@@ -1,3 +1,5 @@
+import React from "react";
+
 interface ButtonProps {
 	className?: string;
 	name: string;
