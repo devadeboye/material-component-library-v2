@@ -1,3 +1,5 @@
+import React from "react";
+
 export enum DividerStyleEnum {
 	fullWidth = "full-width",
 	inset = "inset",
