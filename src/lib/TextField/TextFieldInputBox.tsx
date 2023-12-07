@@ -31,7 +31,7 @@ interface TextFieldInputBoxProps {
 	focused: boolean;
 	changed: boolean;
 	type: inputTypeEnum;
-	ref?: React.MutableRefObject<null>;
+	ref?: React.MutableRefObject<HTMLInputElement>;
 	textFieldFocusedHandler: () => void;
 	textFieldBlurHandler: (event: React.FocusEvent<HTMLInputElement>) => void;
 	textFieldChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
