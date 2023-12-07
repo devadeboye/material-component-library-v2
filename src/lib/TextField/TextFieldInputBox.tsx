@@ -31,7 +31,7 @@ interface TextFieldInputBoxProps {
 	focused: boolean;
 	changed: boolean;
 	type: inputTypeEnum;
-	ref?: React.RefObject<HTMLInputElement>;
+	inputRef?: React.RefObject<HTMLInputElement>;
 	textFieldFocusedHandler: () => void;
 	textFieldBlurHandler: (event: React.FocusEvent<HTMLInputElement>) => void;
 	textFieldChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -65,7 +65,7 @@ const TextFieldInputBox = (props: TextFieldInputBoxProps) => {
 				onBlur={props.textFieldBlurHandler}
 				onChange={props.textFieldChangeHandler}
 				type={props.type}
-				ref={props.ref}
+				ref={props.inputRef}
 			/>
 		</div>
 	);
