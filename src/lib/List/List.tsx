@@ -1,5 +1,6 @@
 import { DividerStyleEnum } from "./Divider";
 import ListItem from "./ListItem";
+import React from "react";
 
 interface ListProps {
 	className?: string;
