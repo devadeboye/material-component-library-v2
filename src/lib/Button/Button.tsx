@@ -37,6 +37,7 @@ const Button = (props: ButtonProps) => {
 			break;
 		}
 	}
+	// TODO make button width configurable as a prop
 
 	return (
 		<div

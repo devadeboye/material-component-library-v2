@@ -16,17 +16,10 @@ function App() {
 		fourth: false,
 		fifth: false,
 	});
-	// const [activeButton, setActiveButton] = useState({
-	// 	first: true,
-	// 	second: false,
-	// 	third: false,
-	// 	fourth: false,
-	// 	fifth: false,
-	// });
 
 	return (
-		<div className="App">
-			<div className="w-20 max-w-20">
+		<div className="w-1/2 box-border mx-5">
+			<div className="">
 				<h3>Segmented Button</h3>
 				<SegmentedButton
 					className="px-5 w-9/12 mt-[5.3rem] sm:mt-0 min-w-full"
@@ -53,7 +46,7 @@ function App() {
 				<h3>Button</h3>
 				<Button
 					name="Add"
-					className="w-10"
+					className="w-3"
 					style={ButtonStyleEnum.outlined}
 					onClick={() => {}}
 				/>
