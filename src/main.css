@@ -505,6 +505,10 @@ video {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -529,8 +533,14 @@ video {
 .grid {
   display: grid;
 }
+.hidden {
+  display: none;
+}
 .h-10 {
   height: 2.5rem;
+}
+.h-12 {
+  height: 3rem;
 }
 .h-14 {
   height: 3.5rem;
@@ -558,6 +568,9 @@ video {
 }
 .w-4\/5 {
   width: 80%;
+}
+.w-6 {
+  width: 1.5rem;
 }
 .w-9\/12 {
   width: 75%;
@@ -653,9 +666,26 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(250 249 252 / var(--tw-bg-opacity));
 }
+.bg-light-surfaceContainerHighest {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 226 230 / var(--tw-bg-opacity));
+}
+.bg-transparent {
+  background-color: transparent;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
 }
 .pl-3 {
   padding-left: 0.75rem;
@@ -670,6 +700,10 @@ video {
 .text-light-onSurface {
   --tw-text-opacity: 1;
   color: rgb(26 28 30 / var(--tw-text-opacity));
+}
+.text-light-onSurfaceVariant {
+  --tw-text-opacity: 1;
+  color: rgb(67 71 78 / var(--tw-text-opacity));
 }
 .text-light-outline {
   --tw-text-opacity: 1;
@@ -691,6 +725,13 @@ video {
 		font-size: 16px;
 		line-height: 24px;
 		letter-spacing: 0.5px;
+	}
+.body-small {
+		font-family: "Roboto";
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 0.4000000059604645px;
 	}
 .label-large {
 		font-family: "Roboto";

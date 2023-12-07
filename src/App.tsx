@@ -9,6 +9,8 @@ import { SegmentedButtonState } from "./lib/Button/interfaces/button.interface";
 import Button, { ButtonStyleEnum } from "./lib/Button/Button";
 import List from "./lib/List/List";
 import { DividerStyleEnum } from "./lib/List/Divider";
+import TextField from "./lib/TextField/TextField";
+import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 
 function App() {
 	const [activeButton, setActiveButton] = useState<SegmentedButtonState>({
@@ -235,6 +237,20 @@ function App() {
 						marginAfterDivider: false,
 					}}
 					items={projectNames}
+				/>
+			</div>
+
+			<div>
+				<h3>TextField</h3>
+				<TextField
+					leading={undefined}
+					label="Device name"
+					supportingText="Name of electrical appliance"
+					trailing={undefined}
+					contentType={inputTypeEnum.text}
+					className="my-2"
+					onBlur={(event) => {}}
+					value="ApplianceName"
 				/>
 			</div>
 		</div>

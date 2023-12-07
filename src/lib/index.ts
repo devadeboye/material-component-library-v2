@@ -10,6 +10,8 @@ import List from "./List/List";
 
 import "../main.css";
 import { DividerStyleEnum } from "./List/Divider";
+import TextField from "./TextField/TextField";
+import { inputTypeEnum } from "./TextField/TextFieldInputBox";
 
 export {
 	//segmented button
@@ -25,5 +27,9 @@ export {
 	// list
 	List,
 	DividerStyleEnum,
+
+	// Textbox
+	TextField,
+	inputTypeEnum
 };
 export type { SegmentedButtonState };
