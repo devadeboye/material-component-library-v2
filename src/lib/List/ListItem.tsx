@@ -1,4 +1,5 @@
 import Divider, { DividerStyleEnum } from "./Divider";
+import React from "react";
 
 interface ListItemProps {
 	leading: string;
