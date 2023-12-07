@@ -1,5 +1,6 @@
 // webpack.config.js
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	mode: "production", // or 'development' for debugging
@@ -27,4 +28,12 @@ module.exports = {
 	resolve: {
 		extensions: [".js", ".jsx", ".ts", ".tsx"],
 	},
+	plugins: [
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: ".npmignore", to: "" },
+				{ from: "package.json", to: "" },
+			],
+		}),
+	],
 };
