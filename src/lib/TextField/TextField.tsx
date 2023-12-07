@@ -16,6 +16,7 @@ interface TextFieldProps {
 	contentType: inputTypeEnum;
 	style?: TextFieldStyleEnum;
 	className?: string;
+	ref?: React.MutableRefObject<null>;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 	value?: string | number;
@@ -84,6 +85,7 @@ const TextField = (props: TextFieldProps) => {
 					textFieldFocusedHandler={textFieldFocusedHandler}
 					textFieldBlurHandler={textFieldBlurHandler}
 					textFieldChangeHandler={textFieldChangeHandler}
+					ref={props.ref}
 				/>
 
 				{props.trailing && <TextFieldTrailing trailing={props.trailing} />}
