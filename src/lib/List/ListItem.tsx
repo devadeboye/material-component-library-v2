@@ -3,7 +3,7 @@ import React from "react";
 
 interface ListItemProps {
 	leading: string;
-	value: string;
+	headline: string;
 	trailing: string;
 	className: string;
 	divider: boolean;
@@ -11,32 +11,38 @@ interface ListItemProps {
 	marginAfterDivider: boolean | undefined;
 }
 
-function ListItem(props: ListItemProps) {
+function ListItem({
+	leading,
+	headline,
+	trailing,
+	className,
+	divider,
+	dividerStyle,
+	marginAfterDivider,
+}: ListItemProps) {
 	return (
 		<li className="list-none box-border">
 			<div
-				className={`flex flex-row gap-5 h-14 items-center pl-3 pr-1 body-large ${props.className}`}
+				className={`flex flex-row gap-5 h-14 items-center pl-3 pr-1 body-large ${className}`}
 			>
-				{props.leading && (
+				{leading && (
 					<div className="w-1/12">
-						<img src={props.leading} alt="leading-icon" />
+						<img src={leading} alt="leading-icon" />
 					</div>
 				)}
 
-				<div className={`${props.leading ? "w-4/5" : "w-11/12"}`}>
-					{props.value}
-				</div>
+				<div className={`${leading ? "w-4/5" : "w-11/12"}`}>{headline}</div>
 
-				{props.trailing && (
+				{trailing && (
 					<div className="w-1/12">
-						<img src={props.trailing} alt="trailing-icon" />
+						<img src={trailing} alt="trailing-icon" />
 					</div>
 				)}
 			</div>
-			{props.divider && props.dividerStyle && (
+			{divider && dividerStyle && (
 				<Divider
-					dividerStyle={props.dividerStyle}
-					marginAfterDivider={props.marginAfterDivider}
+					dividerStyle={dividerStyle}
+					marginAfterDivider={marginAfterDivider}
 				/>
 			)}
 		</li>

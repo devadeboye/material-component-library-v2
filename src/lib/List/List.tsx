@@ -1,6 +1,6 @@
+import React from "react";
 import { DividerStyleEnum } from "./Divider";
 import ListItem from "./ListItem";
-import React from "react";
 
 interface ListProps {
 	className?: string;
@@ -14,32 +14,47 @@ interface ListProps {
 	};
 }
 
-const List = (props: ListProps) => {
-	const items: JSX.Element[] = [];
+/**
+ * @param className are custom css classes you want to pass to the list
+ * @param leading this indicate if the list item is going to have a leading icon. its optional and it defaults to empty string
+ * @param headline this is the main content in the list item
+ * @param trailing this indicate if the list item is going to have a trailing icon. its optional and it defaults to empty string
+ * @param divider this indicates if the list is going to be seperated by dividers
+ * @param dividerStyle.type this describe the type of divider. values can be full-width, inset, middle-inset
+ * @param dividerStyle.marginAfterDivider this determines if there is going to be a margin after the divider or not
+ * @param items is the array of items to display in the list
+ *
+ * @returns
+ */
+const List = ({
+	className,
+	items,
+	leading,
+	trailing,
+	divider,
+	dividerStyle,
+}: ListProps) => {
+	const listItems: JSX.Element[] = [];
 
-	for (let i = 0; i < props.items.length; i++) {
-		const lastItem = i + 1 === props.items.length;
-		items.push(
+	for (let i = 0; i < items.length; i++) {
+		const lastItem = i + 1 === items.length;
+		listItems.push(
 			<ListItem
 				key={i}
-				leading={props.leading}
-				value={props.items[i]}
-				trailing={props.trailing}
+				leading={leading}
+				headline={items[i]}
+				trailing={trailing}
 				className="bg-light-surface text-light-onSurface"
-				divider={lastItem ? false : props.divider}
-				dividerStyle={props.dividerStyle.type}
-				marginAfterDivider={props.dividerStyle.marginAfterDivider}
+				divider={lastItem ? false : divider}
+				dividerStyle={dividerStyle.type}
+				marginAfterDivider={dividerStyle.marginAfterDivider}
 			/>
 		);
 	}
 
 	return (
-		<ul
-			className={`bg-light-surface box-border ${
-				props.className && props.className
-			}`}
-		>
-			{items}
+		<ul className={`bg-light-surface box-border ${className && className}`}>
+			{listItems}
 		</ul>
 	);
 };
