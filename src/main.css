@@ -545,6 +545,9 @@ video {
 .h-14 {
   height: 3.5rem;
 }
+.h-16 {
+  height: 4rem;
+}
 .h-6 {
   height: 1.5rem;
 }
@@ -693,6 +696,10 @@ video {
 .pr-1 {
   padding-right: 0.25rem;
 }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .text-light-onSecondaryContainer {
   --tw-text-opacity: 1;
   color: rgb(16 28 43 / var(--tw-text-opacity));
@@ -712,6 +719,9 @@ video {
 .text-light-primary {
   --tw-text-opacity: 1;
   color: rgb(0 97 164 / var(--tw-text-opacity));
+}
+.overline {
+  text-decoration-line: overline;
 }
 .outline {
   outline-style: solid;

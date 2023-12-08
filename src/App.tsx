@@ -7,7 +7,7 @@ import SegmentedButton, {
 } from "./lib/Button/SegmentedButton";
 import { SegmentedButtonState } from "./lib/Button/interfaces/button.interface";
 import Button, { ButtonStyleEnum } from "./lib/Button/Button";
-import List from "./lib/List/List";
+import List, { ListItemConditionEnum } from "./lib/List/List";
 import { DividerStyleEnum } from "./lib/List/Divider";
 import TextField from "./lib/TextField/TextField";
 import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
@@ -197,6 +197,8 @@ function App() {
 
 	return (
 		<div className="w-1/2 box-border mx-5">
+			<h1>Component Gallery</h1>
+
 			<div className="">
 				<h3>Segmented Button</h3>
 				<SegmentedButton
@@ -218,7 +220,9 @@ function App() {
 						},
 					}}
 				/>
+				h
 			</div>
+			<br></br>
 
 			<div>
 				<h3>Button</h3>
@@ -229,9 +233,11 @@ function App() {
 					onClick={() => {}}
 				/>
 			</div>
+			<br></br>
 
 			<div>
 				<h3>List</h3>
+				<h4>One-line list</h4>
 				<List
 					className="h-full"
 					leading=""
@@ -242,6 +248,24 @@ function App() {
 						marginAfterDivider: false,
 					}}
 					items={projectNames}
+					condition={ListItemConditionEnum.oneLine}
+					overline={true}
+				/>
+
+				<br></br>
+				<h4>two-line list</h4>
+				<List
+					className="h-full"
+					leading=""
+					trailing={""}
+					divider={true}
+					dividerStyle={{
+						type: DividerStyleEnum.middleInset,
+						marginAfterDivider: false,
+					}}
+					items={projectNames}
+					condition={ListItemConditionEnum.twoLines}
+					overline={true}
 				/>
 			</div>
 

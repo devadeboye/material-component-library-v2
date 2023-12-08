@@ -1,8 +1,14 @@
 import React from "react";
 import { DividerStyleEnum } from "./Divider";
-import OneLineListItem, { ListItemConditionEnum } from "./oneLineListItem";
+import OneLineListItem from "./oneLineListItem";
 import TwoLineListItem from "./twoLineListItem";
 import ThreeLinesListItem from "./treeLinesListItem";
+
+export enum ListItemConditionEnum {
+	oneLine = "one-line",
+	twoLines = "two-lines",
+	threeLines = "three-lines",
+}
 
 interface ListProps {
 	className?: string;
@@ -14,7 +20,9 @@ interface ListProps {
 		type: DividerStyleEnum;
 		marginAfterDivider: boolean;
 	};
-	condition: ListItemConditionEnum;
+	condition?: ListItemConditionEnum;
+	overline?: boolean;
+	supportingText?: boolean;
 }
 
 /**
@@ -27,6 +35,8 @@ interface ListProps {
  * @param dividerStyle.marginAfterDivider this determines if there is going to be a margin after the divider or not
  * @param items is the array of items to display in the list
  * @param condition this describe the type of list item. it can be one-line, two-lines, three-lines
+ * @param overline this indicate if overline should be shown on the list item. NOTE: when overline is shown, supporting text cannot be shown. only the headline and the overline will be shown. Also overline only exist on two-line list items
+ * @param supportingText this is an accompanying text displayed with the headline. it further explains the headline
  *
  * @returns
  */
@@ -38,17 +48,19 @@ const List = ({
 	divider,
 	dividerStyle,
 	condition = ListItemConditionEnum.oneLine,
+	overline = false,
+	supportingText = false,
 }: ListProps) => {
 	const listItems: JSX.Element[] = [];
+	const twoOrThreeLinesListItem =
+		condition === ListItemConditionEnum.twoLines ||
+		condition === ListItemConditionEnum.threeLines;
+	if (twoOrThreeLinesListItem) supportingText = true;
 
 	for (let i = 0; i < items.length; i++) {
 		const lastItem = i + 1 === items.length;
 		listItems.push(
-			condition === ListItemConditionEnum.threeLines ? (
-				<ThreeLinesListItem />
-			) : condition === ListItemConditionEnum.twoLines ? (
-				<TwoLineListItem />
-			) : (
+			condition === ListItemConditionEnum.oneLine ? (
 				<OneLineListItem
 					key={i}
 					leading={leading}
@@ -59,6 +71,20 @@ const List = ({
 					dividerStyle={dividerStyle.type}
 					marginAfterDivider={dividerStyle.marginAfterDivider}
 				/>
+			) : condition === ListItemConditionEnum.twoLines || overline ? (
+				<TwoLineListItem
+					key={i}
+					leading={leading}
+					headline={items[i]}
+					trailing={trailing}
+					className="bg-light-surface text-light-onSurface"
+					divider={lastItem ? false : divider}
+					dividerStyle={dividerStyle.type}
+					marginAfterDivider={dividerStyle.marginAfterDivider}
+					overline={overline}
+				/> // TODO these are dummy params for now
+			) : (
+				<ThreeLinesListItem />
 			)
 		);
 	}

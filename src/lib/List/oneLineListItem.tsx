@@ -1,11 +1,5 @@
-import Divider, { DividerStyleEnum } from "./Divider";
 import React from "react";
-
-export enum ListItemConditionEnum {
-	oneLine = "one-line",
-	twoLines = "two-lines",
-	threeLines = "three-lines",
-}
+import Divider, { DividerStyleEnum } from "./Divider";
 
 interface OneLineListItemProps {
 	leading: string;
