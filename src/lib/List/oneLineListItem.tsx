@@ -1,7 +1,13 @@
 import Divider, { DividerStyleEnum } from "./Divider";
 import React from "react";
 
-interface ListItemProps {
+export enum ListItemConditionEnum {
+	oneLine = "one-line",
+	twoLines = "two-lines",
+	threeLines = "three-lines",
+}
+
+interface OneLineListItemProps {
 	leading: string;
 	headline: string;
 	trailing: string;
@@ -11,7 +17,7 @@ interface ListItemProps {
 	marginAfterDivider: boolean | undefined;
 }
 
-function ListItem({
+function OneLineListItem({
 	leading,
 	headline,
 	trailing,
@@ -19,7 +25,7 @@ function ListItem({
 	divider,
 	dividerStyle,
 	marginAfterDivider,
-}: ListItemProps) {
+}: OneLineListItemProps) {
 	return (
 		<li className="list-none box-border">
 			<div
@@ -49,4 +55,4 @@ function ListItem({
 	);
 }
 
-export default ListItem;
+export default OneLineListItem;

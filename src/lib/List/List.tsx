@@ -1,6 +1,8 @@
 import React from "react";
 import { DividerStyleEnum } from "./Divider";
-import ListItem from "./ListItem";
+import OneLineListItem, { ListItemConditionEnum } from "./oneLineListItem";
+import TwoLineListItem from "./twoLineListItem";
+import ThreeLinesListItem from "./treeLinesListItem";
 
 interface ListProps {
 	className?: string;
@@ -12,6 +14,7 @@ interface ListProps {
 		type: DividerStyleEnum;
 		marginAfterDivider: boolean;
 	};
+	condition: ListItemConditionEnum;
 }
 
 /**
@@ -23,6 +26,7 @@ interface ListProps {
  * @param dividerStyle.type this describe the type of divider. values can be full-width, inset, middle-inset
  * @param dividerStyle.marginAfterDivider this determines if there is going to be a margin after the divider or not
  * @param items is the array of items to display in the list
+ * @param condition this describe the type of list item. it can be one-line, two-lines, three-lines
  *
  * @returns
  */
@@ -33,22 +37,29 @@ const List = ({
 	trailing,
 	divider,
 	dividerStyle,
+	condition = ListItemConditionEnum.oneLine,
 }: ListProps) => {
 	const listItems: JSX.Element[] = [];
 
 	for (let i = 0; i < items.length; i++) {
 		const lastItem = i + 1 === items.length;
 		listItems.push(
-			<ListItem
-				key={i}
-				leading={leading}
-				headline={items[i]}
-				trailing={trailing}
-				className="bg-light-surface text-light-onSurface"
-				divider={lastItem ? false : divider}
-				dividerStyle={dividerStyle.type}
-				marginAfterDivider={dividerStyle.marginAfterDivider}
-			/>
+			condition === ListItemConditionEnum.threeLines ? (
+				<ThreeLinesListItem />
+			) : condition === ListItemConditionEnum.twoLines ? (
+				<TwoLineListItem />
+			) : (
+				<OneLineListItem
+					key={i}
+					leading={leading}
+					headline={items[i]}
+					trailing={trailing}
+					className="bg-light-surface text-light-onSurface"
+					divider={lastItem ? false : divider}
+					dividerStyle={dividerStyle.type}
+					marginAfterDivider={dividerStyle.marginAfterDivider}
+				/>
+			)
 		);
 	}
 
