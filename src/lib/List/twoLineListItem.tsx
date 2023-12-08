@@ -9,7 +9,8 @@ interface TwoLineListItemProps {
 	divider: boolean;
 	dividerStyle: DividerStyleEnum | undefined;
 	marginAfterDivider: boolean | undefined;
-	overline?: boolean;
+	overline?: string;
+	supportingText?: string;
 }
 
 function TwoLineListItem({
@@ -19,8 +20,11 @@ function TwoLineListItem({
 	className,
 	divider,
 	dividerStyle,
-	marginAfterDivider, overline
+	marginAfterDivider,
+	overline,
+	supportingText,
 }: TwoLineListItemProps) {
+	if (overline) supportingText = "";
 	return (
 		<li className="list-none box-border">
 			<div
@@ -34,10 +38,13 @@ function TwoLineListItem({
 
 				<div className={`${leading ? "w-4/5" : "w-11/12"}`}>
 					{/* This is the overline section */}
-					{overline && <div className="text-xs">overline</div>}
+					{overline && <div className="text-xs">{overline}</div>}
 
 					{/* This is the headline section */}
 					<div>{headline}</div>
+
+					{/* This is the supportingText section */}
+					{supportingText && <div className="text-xs">{supportingText}</div>}
 				</div>
 
 				{trailing && (
@@ -53,7 +60,7 @@ function TwoLineListItem({
 				/>
 			)}
 		</li>
-	);
+	); // TODO work on showing supporting text
 }
 
 export default TwoLineListItem;

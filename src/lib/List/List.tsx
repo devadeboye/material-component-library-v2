@@ -10,9 +10,15 @@ export enum ListItemConditionEnum {
 	threeLines = "three-lines",
 }
 
+export interface ItemDto {
+	headline: string;
+	overline?: string;
+	supportingText?: string;
+}
+
 interface ListProps {
 	className?: string;
-	items: string[];
+	items: ItemDto[];
 	leading: string;
 	trailing: string;
 	divider: boolean;
@@ -21,8 +27,6 @@ interface ListProps {
 		marginAfterDivider: boolean;
 	};
 	condition?: ListItemConditionEnum;
-	overline?: boolean;
-	supportingText?: boolean;
 }
 
 /**
@@ -35,8 +39,6 @@ interface ListProps {
  * @param dividerStyle.marginAfterDivider this determines if there is going to be a margin after the divider or not
  * @param items is the array of items to display in the list
  * @param condition this describe the type of list item. it can be one-line, two-lines, three-lines
- * @param overline this indicate if overline should be shown on the list item. NOTE: when overline is shown, supporting text cannot be shown. only the headline and the overline will be shown. Also overline only exist on two-line list items
- * @param supportingText this is an accompanying text displayed with the headline. it further explains the headline
  *
  * @returns
  */
@@ -48,14 +50,12 @@ const List = ({
 	divider,
 	dividerStyle,
 	condition = ListItemConditionEnum.oneLine,
-	overline = false,
-	supportingText = false,
 }: ListProps) => {
 	const listItems: JSX.Element[] = [];
-	const twoOrThreeLinesListItem =
-		condition === ListItemConditionEnum.twoLines ||
-		condition === ListItemConditionEnum.threeLines;
-	if (twoOrThreeLinesListItem) supportingText = true;
+	// const twoOrThreeLinesListItem =
+	// 	condition === ListItemConditionEnum.twoLines ||
+	// 	condition === ListItemConditionEnum.threeLines;
+	// if (twoOrThreeLinesListItem) supportingText = true;
 
 	for (let i = 0; i < items.length; i++) {
 		const lastItem = i + 1 === items.length;
@@ -64,27 +64,38 @@ const List = ({
 				<OneLineListItem
 					key={i}
 					leading={leading}
-					headline={items[i]}
+					headline={items[i].headline}
 					trailing={trailing}
 					className="bg-light-surface text-light-onSurface"
 					divider={lastItem ? false : divider}
 					dividerStyle={dividerStyle.type}
 					marginAfterDivider={dividerStyle.marginAfterDivider}
 				/>
-			) : condition === ListItemConditionEnum.twoLines || overline ? (
+			) : condition === ListItemConditionEnum.twoLines ? (
 				<TwoLineListItem
 					key={i}
 					leading={leading}
-					headline={items[i]}
+					headline={items[i].headline}
 					trailing={trailing}
 					className="bg-light-surface text-light-onSurface"
 					divider={lastItem ? false : divider}
 					dividerStyle={dividerStyle.type}
 					marginAfterDivider={dividerStyle.marginAfterDivider}
-					overline={overline}
+					overline={items[i].overline}
+					supportingText={items[i].supportingText}
 				/> // TODO these are dummy params for now
 			) : (
-				<ThreeLinesListItem />
+				<ThreeLinesListItem
+					key={i}
+					leading={leading}
+					headline={items[i].headline}
+					trailing={trailing}
+					className="bg-light-surface text-light-onSurface"
+					divider={lastItem ? false : divider}
+					dividerStyle={dividerStyle.type}
+					marginAfterDivider={dividerStyle.marginAfterDivider}
+					supportingText={items[i].supportingText}
+				/>
 			)
 		);
 	}
