@@ -28,6 +28,6 @@
 		"src/**/*.test.tsx",
 		"src/**/*.test.ts",
 		"src/app.tsx",
-		"src/index.tsx"
+		"src/index.tsx", "src/constant.ts"
 	]
 }
