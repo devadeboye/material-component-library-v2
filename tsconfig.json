@@ -12,7 +12,7 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"isolatedModules": true,
+		"isolatedModules": false,
 		"jsx": "react-jsx",
 		"outDir": "./dist",
 		"emitDeclarationOnly": true,
@@ -22,12 +22,17 @@
 			"react": ["node_modules/react"]
 		}
 	},
-	"include": ["src/lib/**/*.tsx", "src/lib/**/*.ts"],
-	// "include": ["src/**/*.tsx", "src/**/*.ts"],
+	"include": [
+		"src/lib/**/*.tsx",
+		"src/lib/**/*.ts",
+		"src/lib/**/*.css",
+		"src/lib/**/*d.ts"
+	],
 	"exclude": [
 		"src/**/*.test.tsx",
 		"src/**/*.test.ts",
 		"src/app.tsx",
-		"src/index.tsx"
+		"src/index.tsx",
+		"src/constant.ts"
 	]
 }
