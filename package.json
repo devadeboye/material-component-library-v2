@@ -54,12 +54,15 @@
 		"style-loader": "^3.3.3",
 		"tailwindcss": "^3.3.5",
 		"ts-loader": "^9.5.1",
+		"typed-css-modules": "^0.8.1",
+		"typings-for-css-modules-loader": "^1.7.0",
 		"webpack": "^5.89.0",
 		"webpack-cli": "^5.1.4"
 	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"start:dev": "tcm --watch src/lib --pattern **/*.module.css & react-scripts start",
 		"test": "react-scripts test",
 		"clean": "rimraf dist",
 		"eject": "react-scripts eject",

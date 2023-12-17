@@ -12,6 +12,7 @@ import { DividerStyleEnum } from "./lib/List/Divider";
 import TextField from "./lib/TextField/TextField";
 import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 import { histories } from "./constant";
+import Slideshow from "./lib/slideShow/slideShow";
 
 function formatListData(): ItemDto[] {
 	const data: ItemDto[] = [
@@ -127,6 +128,11 @@ function App() {
 					value="ApplianceName"
 					state={{ value: textFieldState, setValue: setTextFieldState }}
 				/>
+			</div>
+
+			<div>
+				<h3>Slider</h3>
+				<Slideshow contents={[1, 2, 3]}  />
 			</div>
 		</div>
 	);
