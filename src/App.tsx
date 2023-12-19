@@ -14,17 +14,25 @@ import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 import { histories } from "./constant";
 import Slideshow from "./lib/slideShow/slideShow";
 
-function formatListData(): ItemDto[] {
-	const data: ItemDto[] = [
+type HistoryType = (typeof histories)[0];
+
+function formatListData(): ItemDto<HistoryType>[] {
+	const data: ItemDto<HistoryType>[] = [
 		{
 			headline: histories[0].workload.toString(),
 			overline: "workload",
 			id: histories[0].id,
+			meta: histories[0],
 		},
 	];
 	for (const [key, value] of Object.entries(histories[0].estimateResult)) {
 		if (key != "powerInverterBatteryCable")
-			data.push({ headline: value.toString(), overline: key, id: key });
+			data.push({
+				headline: value.toString(),
+				overline: key,
+				id: key,
+				meta: histories[0],
+			});
 	}
 	return data;
 }
@@ -43,9 +51,13 @@ function App() {
 	});
 
 	const oneLineListData = histories.map((history) => {
-		return { headline: history.name, id: history.id };
+		return { headline: history.name, id: history.id, meta: history };
 	});
 	const twoLineListData = [];
+
+	function listItemClickHandler(id: string | number) {
+		alert(`list item id is ${id}`);
+	}
 
 	return (
 		<div className="w-1/2 box-border mx-5">
@@ -101,6 +113,7 @@ function App() {
 					}}
 					items={oneLineListData}
 					condition={ListItemConditionEnum.oneLine}
+					onListItemClick={listItemClickHandler}
 				/>
 
 				<br></br>
