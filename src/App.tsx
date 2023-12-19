@@ -16,11 +16,15 @@ import Slideshow from "./lib/slideShow/slideShow";
 
 function formatListData(): ItemDto[] {
 	const data: ItemDto[] = [
-		{ headline: histories[0].workload.toString(), overline: "workload" },
+		{
+			headline: histories[0].workload.toString(),
+			overline: "workload",
+			id: histories[0].id,
+		},
 	];
 	for (const [key, value] of Object.entries(histories[0].estimateResult)) {
 		if (key != "powerInverterBatteryCable")
-			data.push({ headline: value.toString(), overline: key });
+			data.push({ headline: value.toString(), overline: key, id: key });
 	}
 	return data;
 }
@@ -39,7 +43,7 @@ function App() {
 	});
 
 	const oneLineListData = histories.map((history) => {
-		return { headline: history.name };
+		return { headline: history.name, id: history.id };
 	});
 	const twoLineListData = [];
 
@@ -132,7 +136,7 @@ function App() {
 
 			<div>
 				<h3>Slider</h3>
-				<Slideshow contents={[1, 2, 3]}  />
+				<Slideshow contents={[1, 2, 3]} />
 			</div>
 		</div>
 	);
