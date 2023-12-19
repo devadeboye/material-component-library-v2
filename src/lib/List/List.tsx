@@ -11,6 +11,7 @@ export enum ListItemConditionEnum {
 }
 
 export interface ItemDto {
+	id: string | number;
 	headline: string;
 	overline?: string;
 	supportingText?: string;
@@ -62,7 +63,7 @@ const List = ({
 		listItems.push(
 			condition === ListItemConditionEnum.oneLine ? (
 				<OneLineListItem
-					key={i}
+					key={items[i].id}
 					leading={leading}
 					headline={items[i].headline}
 					trailing={trailing}
@@ -73,7 +74,7 @@ const List = ({
 				/>
 			) : condition === ListItemConditionEnum.twoLines ? (
 				<TwoLineListItem
-					key={i}
+					key={items[i].id}
 					leading={leading}
 					headline={items[i].headline}
 					trailing={trailing}
@@ -86,7 +87,7 @@ const List = ({
 				/> // TODO these are dummy params for now
 			) : (
 				<ThreeLinesListItem
-					key={i}
+					key={items[i].id}
 					leading={leading}
 					headline={items[i].headline}
 					trailing={trailing}
