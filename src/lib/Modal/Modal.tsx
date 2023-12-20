@@ -4,29 +4,42 @@ import ReactDOM from "react-dom";
 interface BackdropProps {
 	onHideOverlay: () => void;
 	backdropColour: string;
+	topMargin: string;
+	leftMargin: string;
 }
 interface ModalOverlayProps {
 	children: ReactNode | ReactNode[];
+	maxHeight: string;
 }
 interface ModalProps {
 	onHideOverlay: () => void;
 	children: ReactNode | ReactNode[];
 	overlayRoot: string;
 	backdropColour?: string;
+	maxHeight?: string;
+	topMargin?: string;
+	leftMargin?: string;
 }
 
-const Backdrop = ({ onHideOverlay, backdropColour }: BackdropProps) => {
+const Backdrop = ({
+	onHideOverlay,
+	backdropColour,
+	topMargin,
+	leftMargin,
+}: BackdropProps) => {
 	return (
 		<div
-			className={`fixed top-0 left-0 z-10 w-full h-screen ${backdropColour}`}
+			className={`fixed z-10 w-full h-screen ${topMargin} ${leftMargin} ${backdropColour}`}
 			onClick={onHideOverlay}
 		/>
 	);
 };
 
-const ModalOverlay = ({ children }: ModalOverlayProps) => {
+const ModalOverlay = ({ children, maxHeight }: ModalOverlayProps) => {
 	return (
-		<div className="fixed top-[30vh] left-[30%] w-2/5 z-50 overflow-hidden bg-light-surface rounded-lg">
+		<div
+			className={`fixed top-[30vh] left-[30%] w-2/5 z-50 overflow-scroll bg-light-surface rounded-lg ${maxHeight}`}
+		>
 			{children}
 		</div>
 	);
@@ -46,6 +59,9 @@ const Modal = ({
 	children,
 	overlayRoot,
 	backdropColour = "bg-dark-scrim/75",
+	maxHeight = "max-h-[60%]",
+	topMargin = "top-0",
+	leftMargin = "left-0",
 }: ModalProps) => {
 	const modalOverlayRoot = document.getElementById(overlayRoot);
 	if (!modalOverlayRoot) {
@@ -58,12 +74,14 @@ const Modal = ({
 				<Backdrop
 					onHideOverlay={onHideOverlay}
 					backdropColour={backdropColour}
+					topMargin={topMargin}
+					leftMargin={leftMargin}
 				/>,
 				modalOverlayRoot
 			)}
 
 			{ReactDOM.createPortal(
-				<ModalOverlay>{children}</ModalOverlay>,
+				<ModalOverlay maxHeight={maxHeight}>{children}</ModalOverlay>,
 				modalOverlayRoot
 			)}
 		</Fragment>
