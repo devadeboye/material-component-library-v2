@@ -1,6 +1,6 @@
 {
 	"name": "@devadeboye/material-component-library-v2",
-	"version": "5.1.0",
+	"version": "5.1.1",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"license": "GPL-3.0",
