@@ -6,7 +6,7 @@ import {
 import { SegmentedButtonState } from "./Button/interfaces/button.interface";
 import Button from "./Button/Button";
 import { ButtonStyleEnum, ButtonBorderEnum } from "./Button/Button";
-import List from "./List/List";
+import List, { ItemDto, ListItemConditionEnum } from "./List/List";
 
 import "../main.css";
 import { DividerStyleEnum } from "./List/Divider";
@@ -28,12 +28,14 @@ export {
 	// list
 	List,
 	DividerStyleEnum,
+	ListItemConditionEnum,
+	ItemDto,
 
 	// Textbox
 	TextField,
 	inputTypeEnum,
 
 	// Modal
-	Modal
+	Modal,
 };
 export type { SegmentedButtonState };
