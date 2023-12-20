@@ -13,6 +13,7 @@ import TextField from "./lib/TextField/TextField";
 import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 import { histories } from "./constant";
 import Slideshow from "./lib/slideShow/slideShow";
+import Modal from "./lib/Modal/Modal";
 
 type HistoryType = (typeof histories)[0];
 
@@ -49,6 +50,12 @@ function App() {
 		focused: false,
 		changed: false,
 	});
+	const [showModal, setShowModal] = useState(false);
+
+	function showModalClickHandler(status: boolean) {
+		setShowModal(status);
+		console.log(`modal status updated to ${status}`);
+	}
 
 	const oneLineListData = histories.map((history) => {
 		return { headline: history.name, id: history.id, meta: history };
@@ -151,6 +158,37 @@ function App() {
 				<h3>Slider</h3>
 				<Slideshow contents={[1, 2, 3]} />
 			</div>
+
+			<div>
+				<h1>modal</h1>
+				<Button
+					name="Show Modal"
+					className="w-3"
+					style={ButtonStyleEnum.outlined}
+					onClick={() => showModalClickHandler(true)}
+				/>
+				{showModal && (
+					<Modal
+						onHideOverlay={() => showModalClickHandler(false)}
+						overlayRoot="overlay-root"
+						backdropColour=" bg-light-primary/75"
+					>
+						<TextField
+							leading={undefined}
+							label="Device name"
+							supportingText="Name of electrical appliance"
+							trailing={undefined}
+							contentType={inputTypeEnum.text}
+							className="my-2"
+							onBlur={(event) => {}}
+							value="ApplianceName"
+							state={{ value: textFieldState, setValue: setTextFieldState }}
+						/>
+					</Modal>
+				)}
+			</div>
+			<br></br>
+			<br></br>
 		</div>
 	);
 }
