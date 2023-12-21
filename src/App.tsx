@@ -171,7 +171,7 @@ function App() {
 					<Modal
 						onHideOverlay={() => showModalClickHandler(false)}
 						overlayRoot="overlay-root"
-						backdropColour=" bg-light-primary/75"
+						backdropColour="bg-light-primary/75"
 					>
 						<TextField
 							leading={undefined}
@@ -183,6 +183,30 @@ function App() {
 							onBlur={(event) => {}}
 							value="ApplianceName"
 							state={{ value: textFieldState, setValue: setTextFieldState }}
+						/>
+						<List
+							className="h-full"
+							leading=""
+							trailing={""}
+							divider={true}
+							dividerStyle={{
+								type: DividerStyleEnum.middleInset,
+								marginAfterDivider: false,
+							}}
+							items={formatListData()}
+							condition={ListItemConditionEnum.twoLines}
+						/>
+						<List
+							className="h-full"
+							leading=""
+							trailing={""}
+							divider={true}
+							dividerStyle={{
+								type: DividerStyleEnum.middleInset,
+								marginAfterDivider: false,
+							}}
+							items={formatListData()}
+							condition={ListItemConditionEnum.twoLines}
 						/>
 					</Modal>
 				)}

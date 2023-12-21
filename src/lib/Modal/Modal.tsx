@@ -65,10 +65,10 @@ const Modal = ({
 	children,
 	overlayRoot,
 	backdropColour = "bg-dark-scrim/75",
-	maxHeight = "max-h-[60%]",
-	topPosition = "top-[30vh]",
-	leftPosition = "left-[30%]",
-	width = "w-2/5",
+	maxHeight = "max-h-[70%] sm:max-h-[60%]",
+	topPosition = "top-[32vh] sm:top-[30vh]",
+	leftPosition = "left-0 sm:left-[30%]",
+	width = "w-full sm:w-2/5",
 }: ModalProps) => {
 	const modalOverlayRoot = document.getElementById(overlayRoot);
 	if (!modalOverlayRoot) {
