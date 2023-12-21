@@ -1,7 +1,9 @@
 import React from "react";
 import Divider, { DividerStyleEnum } from "./Divider";
+import { ItemDto } from "./List";
 
-interface OneLineListItemProps {
+interface OneLineListItemProps<T> {
+	id: string | number;
 	leading: string;
 	headline: string;
 	trailing: string;
@@ -9,9 +11,12 @@ interface OneLineListItemProps {
 	divider: boolean;
 	dividerStyle: DividerStyleEnum | undefined;
 	marginAfterDivider: boolean | undefined;
+	onClick?: (id: string | number, metadata: T) => void;
+	metadata: ItemDto<T>;
 }
 
-function OneLineListItem({
+function OneLineListItem<T>({
+	id,
 	leading,
 	headline,
 	trailing,
@@ -19,9 +24,18 @@ function OneLineListItem({
 	divider,
 	dividerStyle,
 	marginAfterDivider,
-}: OneLineListItemProps) {
+	onClick = () => {},
+	metadata,
+}: OneLineListItemProps<T>) {
+	function onClickHandler(event: React.MouseEvent<HTMLElement>) {
+		const { meta } = metadata;
+		event.preventDefault();
+
+		onClick(id, meta);
+	}
+
 	return (
-		<li className="list-none box-border">
+		<li className="list-none box-border" onClick={onClickHandler}>
 			<div
 				className={`flex flex-row gap-5 h-14 items-center pl-3 pr-1 body-large ${className}`}
 			>

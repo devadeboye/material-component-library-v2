@@ -10,15 +10,17 @@ export enum ListItemConditionEnum {
 	threeLines = "three-lines",
 }
 
-export interface ItemDto {
+export interface ItemDto<T> {
+	id: string | number;
 	headline: string;
 	overline?: string;
 	supportingText?: string;
+	meta: T;
 }
 
-interface ListProps {
+interface ListProps<T> {
 	className?: string;
-	items: ItemDto[];
+	items: ItemDto<T>[];
 	leading: string;
 	trailing: string;
 	divider: boolean;
@@ -27,6 +29,7 @@ interface ListProps {
 		marginAfterDivider: boolean;
 	};
 	condition?: ListItemConditionEnum;
+	onListItemClick?: (id: string | number, metadata: T) => void;
 }
 
 /**
@@ -39,10 +42,11 @@ interface ListProps {
  * @param dividerStyle.marginAfterDivider this determines if there is going to be a margin after the divider or not
  * @param items is the array of items to display in the list
  * @param condition this describe the type of list item. it can be one-line, two-lines, three-lines
+ * @param onListItemClick this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
  *
  * @returns
  */
-const List = ({
+const List = <T,>({
 	className,
 	items,
 	leading,
@@ -50,19 +54,18 @@ const List = ({
 	divider,
 	dividerStyle,
 	condition = ListItemConditionEnum.oneLine,
-}: ListProps) => {
+	onListItemClick = () => {},
+}: // metadata
+ListProps<T>) => {
 	const listItems: JSX.Element[] = [];
-	// const twoOrThreeLinesListItem =
-	// 	condition === ListItemConditionEnum.twoLines ||
-	// 	condition === ListItemConditionEnum.threeLines;
-	// if (twoOrThreeLinesListItem) supportingText = true;
 
 	for (let i = 0; i < items.length; i++) {
 		const lastItem = i + 1 === items.length;
 		listItems.push(
 			condition === ListItemConditionEnum.oneLine ? (
 				<OneLineListItem
-					key={i}
+					id={items[i].id}
+					key={items[i].id}
 					leading={leading}
 					headline={items[i].headline}
 					trailing={trailing}
@@ -70,10 +73,12 @@ const List = ({
 					divider={lastItem ? false : divider}
 					dividerStyle={dividerStyle.type}
 					marginAfterDivider={dividerStyle.marginAfterDivider}
+					metadata={items[i]}
+					onClick={onListItemClick}
 				/>
 			) : condition === ListItemConditionEnum.twoLines ? (
 				<TwoLineListItem
-					key={i}
+					key={items[i].id}
 					leading={leading}
 					headline={items[i].headline}
 					trailing={trailing}
@@ -86,7 +91,7 @@ const List = ({
 				/> // TODO these are dummy params for now
 			) : (
 				<ThreeLinesListItem
-					key={i}
+					key={items[i].id}
 					leading={leading}
 					headline={items[i].headline}
 					trailing={trailing}
