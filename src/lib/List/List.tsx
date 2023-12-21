@@ -30,7 +30,6 @@ interface ListProps<T> {
 	};
 	condition?: ListItemConditionEnum;
 	onListItemClick?: (id: string | number, metadata: T) => void;
-	// metadata: T
 }
 
 /**
@@ -44,7 +43,6 @@ interface ListProps<T> {
  * @param items is the array of items to display in the list
  * @param condition this describe the type of list item. it can be one-line, two-lines, three-lines
  * @param onListItemClick this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
- * @param metadata this is an optional additional data youwant to pass along with he list item
  *
  * @returns
  */

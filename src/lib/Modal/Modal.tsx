@@ -4,12 +4,13 @@ import ReactDOM from "react-dom";
 interface BackdropProps {
 	onHideOverlay: () => void;
 	backdropColour: string;
-	topMargin: string;
-	leftMargin: string;
 }
 interface ModalOverlayProps {
 	children: ReactNode | ReactNode[];
 	maxHeight: string;
+	topPosition: string;
+	leftPosition: string;
+	width: string;
 }
 interface ModalProps {
 	onHideOverlay: () => void;
@@ -17,28 +18,30 @@ interface ModalProps {
 	overlayRoot: string;
 	backdropColour?: string;
 	maxHeight?: string;
-	topMargin?: string;
-	leftMargin?: string;
+	topPosition?: string;
+	leftPosition?: string;
+	width?: string;
 }
 
-const Backdrop = ({
-	onHideOverlay,
-	backdropColour,
-	topMargin,
-	leftMargin,
-}: BackdropProps) => {
+const Backdrop = ({ onHideOverlay, backdropColour }: BackdropProps) => {
 	return (
 		<div
-			className={`fixed z-10 w-full h-screen ${topMargin} ${leftMargin} ${backdropColour}`}
+			className={`fixed z-10 w-full h-screen ${backdropColour}`}
 			onClick={onHideOverlay}
 		/>
 	);
 };
 
-const ModalOverlay = ({ children, maxHeight }: ModalOverlayProps) => {
+const ModalOverlay = ({
+	children,
+	maxHeight,
+	topPosition,
+	leftPosition,
+	width,
+}: ModalOverlayProps) => {
 	return (
 		<div
-			className={`fixed top-[30vh] left-[30%] w-2/5 z-50 overflow-scroll bg-light-surface rounded-lg ${maxHeight}`}
+			className={`fixed ${topPosition} ${leftPosition} ${width} z-50 overflow-scroll bg-light-surface rounded-lg ${maxHeight}`}
 		>
 			{children}
 		</div>
@@ -51,6 +54,9 @@ const ModalOverlay = ({ children, maxHeight }: ModalOverlayProps) => {
  * @param children *(ReactNode | ReactNode[])* this are the elements to display in the modal
  * @param overlayRoot *(string)* location in the dom where the modal should be displayed... its a string
  * @param backdropColour *(string)* optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
+ * @param maxHeight *(string)* maximum height of the modal
+ * @param topPosition *(string)* the position of the modal on the top side of the screen
+ * @param leftPosition *(string)* the position of the modal on the left side of the screen
  *
  * @returns
  */
@@ -60,8 +66,9 @@ const Modal = ({
 	overlayRoot,
 	backdropColour = "bg-dark-scrim/75",
 	maxHeight = "max-h-[60%]",
-	topMargin = "top-0",
-	leftMargin = "left-0",
+	topPosition = "top-0",
+	leftPosition = "left-0",
+	width = "w-2/5",
 }: ModalProps) => {
 	const modalOverlayRoot = document.getElementById(overlayRoot);
 	if (!modalOverlayRoot) {
@@ -74,14 +81,19 @@ const Modal = ({
 				<Backdrop
 					onHideOverlay={onHideOverlay}
 					backdropColour={backdropColour}
-					topMargin={topMargin}
-					leftMargin={leftMargin}
 				/>,
 				modalOverlayRoot
 			)}
 
 			{ReactDOM.createPortal(
-				<ModalOverlay maxHeight={maxHeight}>{children}</ModalOverlay>,
+				<ModalOverlay
+					maxHeight={maxHeight}
+					width={width}
+					topPosition={topPosition}
+					leftPosition={leftPosition}
+				>
+					{children}
+				</ModalOverlay>,
 				modalOverlayRoot
 			)}
 		</Fragment>
