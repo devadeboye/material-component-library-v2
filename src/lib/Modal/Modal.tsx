@@ -41,7 +41,7 @@ const ModalOverlay = ({
 }: ModalOverlayProps) => {
 	return (
 		<div
-			className={`fixed ${topPosition} ${leftPosition} ${width} z-50 overflow-scroll bg-light-surface rounded-lg ${maxHeight}`}
+			className={`fixed ${topPosition} ${leftPosition} ${width} z-50 overflow-hidden bg-light-surface rounded-lg ${maxHeight}`}
 		>
 			{children}
 		</div>
@@ -66,8 +66,8 @@ const Modal = ({
 	overlayRoot,
 	backdropColour = "bg-dark-scrim/75",
 	maxHeight = "max-h-[60%]",
-	topPosition = "top-0",
-	leftPosition = "left-0",
+	topPosition = "top-[30vh]",
+	leftPosition = "left-[30%]",
 	width = "w-2/5",
 }: ModalProps) => {
 	const modalOverlayRoot = document.getElementById(overlayRoot);
