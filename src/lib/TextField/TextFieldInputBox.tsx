@@ -1,5 +1,4 @@
 import React from "react";
-import "./TextFieldInputBox.css";
 
 export enum inputTypeEnum {
 	button = "button",

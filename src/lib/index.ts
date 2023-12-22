@@ -8,7 +8,6 @@ import Button from "./Button/Button";
 import { ButtonStyleEnum, ButtonBorderEnum } from "./Button/Button";
 import List, { ItemDto, ListItemConditionEnum } from "./List/List";
 
-import "../main.css";
 import { DividerStyleEnum } from "./List/Divider";
 import TextField from "./TextField/TextField";
 import { inputTypeEnum } from "./TextField/TextFieldInputBox";

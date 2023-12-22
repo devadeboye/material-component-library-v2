@@ -800,6 +800,10 @@ code {
 		monospace;
 }
 
+input:focus-visible {
+	outline: none;
+}
+
 .hover\:bg-light-primary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 97 164 / var(--tw-bg-opacity));
@@ -827,6 +831,10 @@ code {
 
   .sm\:left-\[30\%\] {
     left: 30%;
+  }
+
+  .sm\:top-\[30vh\] {
+    top: 30vh;
   }
 
   .sm\:mt-0 {
