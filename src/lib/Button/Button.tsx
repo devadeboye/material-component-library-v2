@@ -5,7 +5,7 @@ interface ButtonProps {
 	name: string;
 	style: ButtonStyleEnum;
 	borderRadius?: ButtonBorderEnum;
-	height?: string; // in px, em, or % // TODO refactor to accept tailwind height declaration
+	height?: string;
 	width?: string;
 	icon?: string;
 	onClick: (event: any) => void;
@@ -24,6 +24,11 @@ export enum ButtonBorderEnum {
 	full = "fully rounded",
 }
 
+/**
+ *
+ * @param height (string) is a tailwind height command to configure the height of the button. The default is h-10
+ * @returns
+ */
 const Button = ({
 	height = "h-10",
 	borderRadius = ButtonBorderEnum.full,
