@@ -27,7 +27,7 @@ function formatListData(): ItemDto<HistoryType>[] {
 		},
 	];
 	for (const [key, value] of Object.entries(histories[0].estimateResult)) {
-		if (key != "powerInverterBatteryCable")
+		if (key !== "powerInverterBatteryCable")
 			data.push({
 				headline: value.toString(),
 				overline: key,
@@ -99,9 +99,10 @@ function App() {
 				<h3>Button</h3>
 				<Button
 					name="Add"
-					className="w-3"
+					className=""
 					style={ButtonStyleEnum.outlined}
 					onClick={() => {}}
+					width="w-20"
 				/>
 			</div>
 			<br></br>
@@ -163,9 +164,10 @@ function App() {
 				<h1>modal</h1>
 				<Button
 					name="Show Modal"
-					className="w-3"
+					className=""
 					style={ButtonStyleEnum.outlined}
 					onClick={() => showModalClickHandler(true)}
+					width="w-28"
 				/>
 				{showModal && (
 					<Modal

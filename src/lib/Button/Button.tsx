@@ -5,7 +5,8 @@ interface ButtonProps {
 	name: string;
 	style: ButtonStyleEnum;
 	borderRadius?: ButtonBorderEnum;
-	height?: string; // in px, em, or %
+	height?: string; // in px, em, or % // TODO refactor to accept tailwind height declaration
+	width?: string;
 	icon?: string;
 	onClick: (event: any) => void;
 }
@@ -23,38 +24,43 @@ export enum ButtonBorderEnum {
 	full = "fully rounded",
 }
 
-const Button = (props: ButtonProps) => {
-	let buttonStyle;
-	const buttonHeight = `h-[${props.height}]`;
-	const borderRadius =
-		props.borderRadius === ButtonBorderEnum.slightly
-			? "rounded-lg"
-			: "rounded-full";
+const Button = ({
+	height = "h-10",
+	borderRadius = ButtonBorderEnum.full,
+	style,
+	className,
+	name,
+	icon,
+	width = "w-full",
+	onClick,
+}: ButtonProps) => {
+	let buttonStyleValue;
+	const borderRadiusValue =
+		borderRadius === ButtonBorderEnum.slightly ? "rounded-lg" : "rounded-full";
 
-	switch (props.style) {
+	switch (style) {
 		case ButtonStyleEnum.outlined: {
-			buttonStyle = "outline outline-1 text-light-outline label-large";
+			buttonStyleValue = "outline outline-1 text-light-outline label-large";
 			break;
 		}
 	}
-	// TODO make button width configurable as a prop
 
 	return (
 		<div
-			className={`${buttonStyle} ${
-				props.height ? buttonHeight : "h-10"
-			} ${borderRadius} relative select-none`}
+			className={`${buttonStyleValue} ${height} ${borderRadiusValue} relative select-none cursor-default ${width}`}
+			onClick={onClick}
 		>
 			<input
-				className={`flex flex-col items-center justify-center h-full ${props.className} ${borderRadius}  hover:bg-light-primary hover:opacity-[8%] focus:bg-light-primary focus:opacity-[12%]`}
-				onClick={props.onClick}
+				className={`flex flex-col items-center justify-center h-full ${className} ${borderRadiusValue}  hover:bg-light-primary hover:opacity-[8%] focus:bg-light-primary focus:opacity-[12%] select-none cursor-default ${width}`}
+				onClick={onClick}
 			/>
 
 			<div
-				className={`flex w-full m-auto justify-center items-center gap-0 absolute top-2.5`}
+				className={`flex w-full m-auto justify-center items-center gap-0 absolute top-2.5 select-none cursor-default`}
+				onClick={onClick}
 			>
-				<img src={props?.icon ?? ""} alt="" />
-				<span className="text-light-primary">{props.name}</span>
+				<img src={icon ?? ""} alt="" />
+				<span className="text-light-primary">{name}</span>
 			</div>
 		</div>
 	);
