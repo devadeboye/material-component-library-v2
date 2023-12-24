@@ -49,12 +49,24 @@ function App() {
 	const [textFieldState, setTextFieldState] = useState({
 		focused: false,
 		changed: false,
+		error: {
+			isError: false,
+			message: "",
+		},
 	});
 	const [showModal, setShowModal] = useState(false);
 
 	function showModalClickHandler(status: boolean) {
 		setShowModal(status);
-		console.log(`modal status updated to ${status}`);
+	}
+
+	function textFieldInputValidator() {
+		setTextFieldState((prevState) => {
+			return {
+				...prevState,
+				error: { isError: true, message: "please fill in some value" },
+			};
+		});
 	}
 
 	const oneLineListData = histories.map((history) => {
@@ -149,8 +161,9 @@ function App() {
 					trailing={undefined}
 					contentType={inputTypeEnum.text}
 					className="my-2"
-					onBlur={(event) => {}}
-					value="ApplianceName"
+					onBlur={(event) => {
+						textFieldInputValidator();
+					}}
 					state={{ value: textFieldState, setValue: setTextFieldState }}
 				/>
 			</div>
@@ -183,7 +196,7 @@ function App() {
 							contentType={inputTypeEnum.text}
 							className="my-2"
 							onBlur={(event) => {}}
-							value="ApplianceName"
+							// value="ApplianceName"
 							state={{ value: textFieldState, setValue: setTextFieldState }}
 						/>
 						<List

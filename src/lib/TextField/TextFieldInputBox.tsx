@@ -30,6 +30,7 @@ interface TextFieldInputBoxProps {
 	focused: boolean;
 	changed: boolean;
 	type: inputTypeEnum;
+	error: boolean;
 	inputRef?: React.RefObject<HTMLInputElement>;
 	textFieldFocusedHandler: () => void;
 	textFieldBlurHandler: (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -47,7 +48,9 @@ const TextFieldInputBox = (props: TextFieldInputBoxProps) => {
 				displayLabel && (
 					<label
 						htmlFor={id}
-						className="text-light-onSurfaceVariant body-small"
+						className={`${
+							props.error ? "" : "text-light-onSurfaceVariant"
+						} body-small`}
 					>
 						{props.label}
 					</label>

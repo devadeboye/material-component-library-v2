@@ -693,6 +693,12 @@ video {
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
+.border-b {
+  border-bottom-width: 1px;
+}
+.border-b-2 {
+  border-bottom-width: 2px;
+}
 .border-light-outlineVariant {
   --tw-border-opacity: 1;
   border-color: rgb(195 198 207 / var(--tw-border-opacity));
@@ -741,6 +747,10 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.text-light-error {
+  --tw-text-opacity: 1;
+  color: rgb(186 26 26 / var(--tw-text-opacity));
 }
 .text-light-onSecondaryContainer {
   --tw-text-opacity: 1;
