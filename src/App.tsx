@@ -113,7 +113,7 @@ function App() {
 					name="Add"
 					className=""
 					style={ButtonStyleEnum.outlined}
-					onClick={() => {}}
+					onClick={() => console.log("add button clicked")}
 					width="w-20"
 				/>
 			</div>

@@ -56,13 +56,13 @@ const Button = ({
 			onClick={onClick}
 		>
 			<input
-				className={`flex flex-col items-center justify-center h-full ${className} ${borderRadiusValue}  hover:bg-light-primary hover:opacity-[8%] focus:bg-light-primary focus:opacity-[12%] select-none cursor-default ${width}`}
-				onClick={onClick}
+				className={`flex flex-col items-center justify-center h-full ${className} ${borderRadiusValue} hover:bg-light-primary hover:opacity-[8%] focus:bg-light-primary focus:opacity-[12%] select-none cursor-default ${width}`}
+				// onClick={onClick}
 			/>
 
 			<div
 				className={`flex w-full m-auto justify-center items-center gap-0 absolute top-2.5 select-none cursor-default`}
-				onClick={onClick}
+				// onClick={onClick}
 			>
 				<img src={icon ?? ""} alt="" />
 				<span className="text-light-primary">{name}</span>
