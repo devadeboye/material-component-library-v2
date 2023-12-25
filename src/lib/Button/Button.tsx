@@ -9,6 +9,7 @@ interface ButtonProps {
 	width?: string;
 	icon?: string;
 	onClick: (event: any) => void;
+	disabled?: boolean;
 }
 
 export enum ButtonStyleEnum {
@@ -38,6 +39,7 @@ const Button = ({
 	icon,
 	width = "w-full",
 	onClick,
+	disabled = false,
 }: ButtonProps) => {
 	let buttonStyleValue;
 	const borderRadiusValue =
@@ -45,25 +47,39 @@ const Button = ({
 
 	switch (style) {
 		case ButtonStyleEnum.outlined: {
-			buttonStyleValue = "outline outline-1 text-light-outline label-large";
+			buttonStyleValue = `outline outline-1 text-light-outline label-large ${
+				disabled && "opacity-[0.38] cursor-none"
+			}`;
 			break;
 		}
 	}
 
 	return (
 		<div
-			className={`${buttonStyleValue} ${height} ${borderRadiusValue} relative select-none cursor-default ${width}`}
-			onClick={onClick}
+			className={`${buttonStyleValue} ${height} ${borderRadiusValue} relative select-none flex justify-center ${width}`}
+			onClick={disabled ? undefined : onClick}
 		>
 			<input
-				className={`flex flex-col items-center justify-center h-full ${className} ${borderRadiusValue} hover:bg-light-primary hover:opacity-[8%] focus:bg-light-primary focus:opacity-[12%] select-none cursor-default ${width}`}
+				className={`flex flex-col items-center justify-center h-full ${className} ${borderRadiusValue} ${
+					!disabled &&
+					"hover:bg-light-primary hover:opacity-[8%] focus:bg-light-primary focus:opacity-[12%] select-none cursor-default"
+				} ${width}`}
+				disabled={disabled}
 			/>
 
 			<div
-				className={`flex w-full m-auto justify-center items-center gap-0 absolute top-2.5 select-none cursor-default`}
+				className={`flex m-auto justify-center items-center gap-0 absolute top-2.5 select-none`}
 			>
 				<img src={icon ?? ""} alt="" />
-				<span className="text-light-primary">{name}</span>
+				<span
+					className={`${
+						disabled
+							? "text-light-onSurface opacity-[0.38]`"
+							: "text-light-primary"
+					}`}
+				>
+					{name}
+				</span>
 			</div>
 		</div>
 	);

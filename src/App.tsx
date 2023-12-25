@@ -116,6 +116,15 @@ function App() {
 					onClick={() => console.log("add button clicked")}
 					width="w-20"
 				/>
+				<br />
+				<Button
+					name="Disabled"
+					className=""
+					style={ButtonStyleEnum.outlined}
+					onClick={() => console.log("add button clicked")}
+					width="w-20"
+					disabled={true}
+				/>
 			</div>
 			<br></br>
 

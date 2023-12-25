@@ -617,6 +617,9 @@ video {
 .cursor-default {
   cursor: default;
 }
+.cursor-none {
+  cursor: none;
+}
 .select-none {
   -webkit-user-select: none;
           user-select: none;
@@ -774,6 +777,9 @@ video {
 }
 .overline {
   text-decoration-line: overline;
+}
+.opacity-\[0\.38\] {
+  opacity: 0.38;
 }
 .outline {
   outline-style: solid;
