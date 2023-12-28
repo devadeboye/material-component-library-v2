@@ -12,11 +12,18 @@ interface FabProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	fabType?: FabTypeEnum;
 }
 
-// Button component
+/**
+ * Floating action buttons (FABs) help people take primary actions
+ *
+ * @param {Object} props - The properties for the button.
+ * @param {string} [props.icon] - The icon to display on the button.
+ * @param {string} [props.fabType=FabTypeEnum.FAB] - The type of FAB to render
+ *
+ * @returns {JSX.Element} The FAB component.
+ */
 const Fab: React.FC<FabProps> = ({ icon, ...buttonProps }) => {
 	return (
 		<button {...buttonProps}>
-			{/* {icon} */}
 			<img src={icon} alt=""></img>
 		</button>
 	);

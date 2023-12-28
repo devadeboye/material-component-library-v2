@@ -33,18 +33,26 @@ interface ListProps<T> {
 }
 
 /**
- * @param className are custom css classes you want to pass to the list
- * @param leading this indicate if the list item is going to have a leading icon. its optional and it defaults to empty string
- * @param headline this is the main content in the list item
- * @param trailing this indicate if the list item is going to have a trailing icon. its optional and it defaults to empty string
- * @param divider this indicates if the list is going to be seperated by dividers
- * @param dividerStyle.type this describe the type of divider. values can be full-width, inset, middle-inset
- * @param dividerStyle.marginAfterDivider this determines if there is going to be a margin after the divider or not
- * @param items is the array of items to display in the list
- * @param condition this describe the type of list item. it can be one-line, two-lines, three-lines
- * @param onListItemClick this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
+ * Lists are continuous, vertical indexes of text and images
  *
- * @returns
+ * @param {Object} props - The properties for the Segmented button.
+ * @param {string} [props.className] - Additional classes for the list
+ * @param {string} props.leading - Icon to display at the beginging of each list item. Its optional and it defaults to empty string
+ * @param {string} props.trailing - Icon to display at the end of each list item. Its optional and it defaults to empty string
+ * @param {boolean} props.divider - This indicates if the list is going to be seperated by dividers
+ * @param {Array<ItemDto>} props.items - is the array of items to display in the list
+ * @param {string | number} props.items.id - The id for each list item. This is necessary incases where you need to reference each item in the list uniquely
+ * @param {string} props.items.headline - This is the main content in the list item
+ * @param {string} props.items.[overline] - An overline drawing attention to the list item
+ * @param {string} props.items.[supportingText] - Text explaining the list item
+ * @param {GenericType} props.items.meta - Additional information about the list item
+ * @param {Object} props.dividerStyle - Additional information about the list item
+ * @param {string} props.dividerStyle.type - this describe the type of divider. values can be full-width, inset, middle-inset
+ * @param {boolean} props.dividerStyle.marginAfterDivider - this determines if there is going to be a margin after the divider or not
+ * @param {string} [props.condition] - this describe the type of list item. it can be one-line, two-lines, three-lines
+ * @param {function} [props.onListItemClick] - this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
+ *
+ * @returns {JSX.Element} The List component.
  */
 const List = <T,>({
 	className,
@@ -55,8 +63,7 @@ const List = <T,>({
 	dividerStyle,
 	condition = ListItemConditionEnum.oneLine,
 	onListItemClick = () => {},
-}: // metadata
-ListProps<T>) => {
+}: ListProps<T>) => {
 	const listItems: JSX.Element[] = [];
 
 	for (let i = 0; i < items.length; i++) {
