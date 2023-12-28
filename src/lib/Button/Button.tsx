@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonProps {
 	className?: string;
 	name: string;
-	style: ButtonStyleEnum;
+	variant: ButtonVariantEnum;
 	borderRadius?: ButtonBorderEnum;
 	height?: string;
 	width?: string;
@@ -12,7 +12,7 @@ interface ButtonProps {
 	disabled?: boolean;
 }
 
-export enum ButtonStyleEnum {
+export enum ButtonVariantEnum {
 	filled = "filled",
 	outlined = "outlined",
 	filledTonal = "filled tonal",
@@ -26,14 +26,25 @@ export enum ButtonBorderEnum {
 }
 
 /**
+ * Common button component for UI actions.
  *
- * @param height (string) is a tailwind height command to configure the height of the button. The default is h-10
- * @returns
+ * @param {Object} props - The properties for the button.
+ * @param {string} [props.height="h-10"] - Tailwind height command to configure the height of the button.
+ * @param {string} [props.borderRadius=ButtonBorderEnum.full] - The border radius of the button. Default is ButtonBorderEnum.full.
+ * @param {Object} [props.variant] - The variant of the button. This could be filled, outlined etc.
+ * @param {string} [props.className] - Additional classes for the button.
+ * @param {string} [props.name] - The name or label of the button.
+ * @param {string} [props.icon] - The icon to be displayed on the button.
+ * @param {string} [props.width="w-full"] - The width of the button.
+ * @param {function} [props.onClick] - The function to be executed on button click.
+ * @param {boolean} [props.disabled=false] - Indicates whether the button is disabled.
+ *
+ * @returns {JSX.Element} The button component.
  */
 const Button = ({
 	height = "h-10",
 	borderRadius = ButtonBorderEnum.full,
-	style,
+	variant,
 	className,
 	name,
 	icon,
@@ -41,13 +52,13 @@ const Button = ({
 	onClick,
 	disabled = false,
 }: ButtonProps) => {
-	let buttonStyleValue;
+	let buttonVariantValue;
 	const borderRadiusValue =
 		borderRadius === ButtonBorderEnum.slightly ? "rounded-lg" : "rounded-full";
 
-	switch (style) {
-		case ButtonStyleEnum.outlined: {
-			buttonStyleValue = `outline outline-1 text-light-outline label-large ${
+	switch (variant) {
+		case ButtonVariantEnum.outlined: {
+			buttonVariantValue = `outline outline-1 text-light-outline label-large ${
 				disabled && "opacity-[0.38] cursor-none"
 			}`;
 			break;
@@ -56,7 +67,7 @@ const Button = ({
 
 	return (
 		<div
-			className={`${buttonStyleValue} ${height} ${borderRadiusValue} relative select-none flex justify-center ${width}`}
+			className={`${buttonVariantValue} ${height} ${borderRadiusValue} relative select-none flex justify-center ${width}`}
 			onClick={disabled ? undefined : onClick}
 		>
 			<input

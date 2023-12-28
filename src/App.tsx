@@ -3,10 +3,10 @@ import "./App.css";
 
 import SegmentedButton, {
 	SegmentedButtonStyleEnum,
-	SegmentedButtonSizeEnum,
+	SegmentedButtonNumberOfSegmentsEnum,
 } from "./lib/Button/SegmentedButton";
 import { SegmentedButtonState } from "./lib/Button/interfaces/button.interface";
-import Button, { ButtonStyleEnum } from "./lib/Button/Button";
+import Button, { ButtonVariantEnum } from "./lib/Button/Button";
 import List, { ItemDto, ListItemConditionEnum } from "./lib/List/List";
 import { DividerStyleEnum } from "./lib/List/Divider";
 import TextField from "./lib/TextField/TextField";
@@ -14,6 +14,8 @@ import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 import { histories } from "./constant";
 import Slideshow from "./lib/slideShow/slideShow";
 import Modal from "./lib/Modal/Modal";
+import Fab from "./lib/Button/Fab";
+import MoreVertIcon from "./assets/svg/more_vert_24px.svg";
 
 type HistoryType = (typeof histories)[0];
 
@@ -86,8 +88,8 @@ function App() {
 				<h3>Segmented Button</h3>
 				<SegmentedButton
 					className="px-5 w-9/12 mt-[5.3rem] sm:mt-0 min-w-full"
-					size={SegmentedButtonSizeEnum.two}
-					style={SegmentedButtonStyleEnum.fullyRound}
+					numberOfSegments={SegmentedButtonNumberOfSegmentsEnum.two}
+					edgeStyle={SegmentedButtonStyleEnum.fullyRound}
 					buttonState={activeButton}
 					buttonStateUpdater={setActiveButton}
 					buttonsConfiguration={{
@@ -112,7 +114,7 @@ function App() {
 				<Button
 					name="Add"
 					className=""
-					style={ButtonStyleEnum.outlined}
+					variant={ButtonVariantEnum.outlined}
 					onClick={() => console.log("add button clicked")}
 					width="w-20"
 				/>
@@ -120,7 +122,7 @@ function App() {
 				<Button
 					name="Disabled"
 					className=""
-					style={ButtonStyleEnum.outlined}
+					variant={ButtonVariantEnum.outlined}
 					onClick={() => console.log("add button clicked")}
 					width="w-20"
 					disabled={true}
@@ -187,7 +189,7 @@ function App() {
 				<Button
 					name="Show Modal"
 					className=""
-					style={ButtonStyleEnum.outlined}
+					variant={ButtonVariantEnum.outlined}
 					onClick={() => showModalClickHandler(true)}
 					width="w-28"
 				/>
@@ -237,6 +239,10 @@ function App() {
 			</div>
 			<br></br>
 			<br></br>
+
+			<div>
+				<Fab icon={MoreVertIcon}></Fab>
+			</div>
 		</div>
 	);
 }
