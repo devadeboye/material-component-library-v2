@@ -1,14 +1,13 @@
 import SegmentedButton from "./Button/SegmentedButton";
 import {
-	SegmentedButtonSizeEnum,
+	SegmentedButtonNumberOfSegmentsEnum,
 	SegmentedButtonStyleEnum,
 } from "./Button/SegmentedButton";
 import { SegmentedButtonState } from "./Button/interfaces/button.interface";
 import Button from "./Button/Button";
-import { ButtonStyleEnum, ButtonBorderEnum } from "./Button/Button";
+import { ButtonVariantEnum, ButtonBorderEnum } from "./Button/Button";
 import List, { ItemDto, ListItemConditionEnum } from "./List/List";
 
-import "../main.css";
 import { DividerStyleEnum } from "./List/Divider";
 import TextField from "./TextField/TextField";
 import { inputTypeEnum } from "./TextField/TextFieldInputBox";
@@ -17,12 +16,12 @@ import Modal from "./Modal/Modal";
 export {
 	//segmented button
 	SegmentedButton,
-	SegmentedButtonSizeEnum,
+	SegmentedButtonNumberOfSegmentsEnum as SegmentedButtonSizeEnum,
 	SegmentedButtonStyleEnum,
 
 	// button
 	Button,
-	ButtonStyleEnum,
+	ButtonVariantEnum as ButtonStyleEnum,
 	ButtonBorderEnum,
 
 	// list

@@ -3,10 +3,10 @@ import "./App.css";
 
 import SegmentedButton, {
 	SegmentedButtonStyleEnum,
-	SegmentedButtonSizeEnum,
+	SegmentedButtonNumberOfSegmentsEnum,
 } from "./lib/Button/SegmentedButton";
 import { SegmentedButtonState } from "./lib/Button/interfaces/button.interface";
-import Button, { ButtonStyleEnum } from "./lib/Button/Button";
+import Button, { ButtonVariantEnum } from "./lib/Button/Button";
 import List, { ItemDto, ListItemConditionEnum } from "./lib/List/List";
 import { DividerStyleEnum } from "./lib/List/Divider";
 import TextField from "./lib/TextField/TextField";
@@ -14,6 +14,8 @@ import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 import { histories } from "./constant";
 import Slideshow from "./lib/slideShow/slideShow";
 import Modal from "./lib/Modal/Modal";
+import Fab from "./lib/Button/Fab";
+import MoreVertIcon from "./assets/svg/more_vert_24px.svg";
 
 type HistoryType = (typeof histories)[0];
 
@@ -27,7 +29,7 @@ function formatListData(): ItemDto<HistoryType>[] {
 		},
 	];
 	for (const [key, value] of Object.entries(histories[0].estimateResult)) {
-		if (key != "powerInverterBatteryCable")
+		if (key !== "powerInverterBatteryCable")
 			data.push({
 				headline: value.toString(),
 				overline: key,
@@ -49,12 +51,24 @@ function App() {
 	const [textFieldState, setTextFieldState] = useState({
 		focused: false,
 		changed: false,
+		error: {
+			isError: false,
+			message: "",
+		},
 	});
 	const [showModal, setShowModal] = useState(false);
 
 	function showModalClickHandler(status: boolean) {
 		setShowModal(status);
-		console.log(`modal status updated to ${status}`);
+	}
+
+	function textFieldInputValidator() {
+		setTextFieldState((prevState) => {
+			return {
+				...prevState,
+				error: { isError: true, message: "please fill in some value" },
+			};
+		});
 	}
 
 	const oneLineListData = histories.map((history) => {
@@ -74,8 +88,8 @@ function App() {
 				<h3>Segmented Button</h3>
 				<SegmentedButton
 					className="px-5 w-9/12 mt-[5.3rem] sm:mt-0 min-w-full"
-					size={SegmentedButtonSizeEnum.two}
-					style={SegmentedButtonStyleEnum.fullyRound}
+					numberOfSegments={SegmentedButtonNumberOfSegmentsEnum.two}
+					edgeStyle={SegmentedButtonStyleEnum.fullyRound}
 					buttonState={activeButton}
 					buttonStateUpdater={setActiveButton}
 					buttonsConfiguration={{
@@ -99,9 +113,19 @@ function App() {
 				<h3>Button</h3>
 				<Button
 					name="Add"
-					className="w-3"
-					style={ButtonStyleEnum.outlined}
-					onClick={() => {}}
+					className=""
+					variant={ButtonVariantEnum.outlined}
+					onClick={() => console.log("add button clicked")}
+					width="w-20"
+				/>
+				<br />
+				<Button
+					name="Disabled"
+					className=""
+					variant={ButtonVariantEnum.outlined}
+					onClick={() => console.log("add button clicked")}
+					width="w-20"
+					disabled={true}
 				/>
 			</div>
 			<br></br>
@@ -148,8 +172,9 @@ function App() {
 					trailing={undefined}
 					contentType={inputTypeEnum.text}
 					className="my-2"
-					onBlur={(event) => {}}
-					value="ApplianceName"
+					onBlur={(event) => {
+						textFieldInputValidator();
+					}}
 					state={{ value: textFieldState, setValue: setTextFieldState }}
 				/>
 			</div>
@@ -163,15 +188,16 @@ function App() {
 				<h1>modal</h1>
 				<Button
 					name="Show Modal"
-					className="w-3"
-					style={ButtonStyleEnum.outlined}
+					className=""
+					variant={ButtonVariantEnum.outlined}
 					onClick={() => showModalClickHandler(true)}
+					width="w-28"
 				/>
 				{showModal && (
 					<Modal
 						onHideOverlay={() => showModalClickHandler(false)}
 						overlayRoot="overlay-root"
-						backdropColour=" bg-light-primary/75"
+						backdropColour="bg-light-primary/75"
 					>
 						<TextField
 							leading={undefined}
@@ -181,14 +207,42 @@ function App() {
 							contentType={inputTypeEnum.text}
 							className="my-2"
 							onBlur={(event) => {}}
-							value="ApplianceName"
+							// value="ApplianceName"
 							state={{ value: textFieldState, setValue: setTextFieldState }}
+						/>
+						<List
+							className="h-full"
+							leading=""
+							trailing={""}
+							divider={true}
+							dividerStyle={{
+								type: DividerStyleEnum.middleInset,
+								marginAfterDivider: false,
+							}}
+							items={formatListData()}
+							condition={ListItemConditionEnum.twoLines}
+						/>
+						<List
+							className="h-full"
+							leading=""
+							trailing={""}
+							divider={true}
+							dividerStyle={{
+								type: DividerStyleEnum.middleInset,
+								marginAfterDivider: false,
+							}}
+							items={formatListData()}
+							condition={ListItemConditionEnum.twoLines}
 						/>
 					</Modal>
 				)}
 			</div>
 			<br></br>
 			<br></br>
+
+			<div>
+				<Fab icon={MoreVertIcon}></Fab>
+			</div>
 		</div>
 	);
 }

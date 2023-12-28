@@ -15,6 +15,10 @@ code {
 		monospace;
 }
 
+input:focus-visible {
+	outline: none;
+}
+
 @layer utilities {
 	.display-large {
 		font-family: "Roboto";

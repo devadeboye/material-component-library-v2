@@ -20,7 +20,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"react": ["node_modules/react"]
-		}
+		},
+    "typeRoots": ["node_modules/@types", "./typings"]
 	},
 	"include": [
 		"src/lib/**/*.tsx",

@@ -1,16 +1,14 @@
 import React from "react";
 import { SegmentedButtonState } from "./interfaces/button.interface";
 
-export enum SegmentedButtonSizeEnum {
+export enum SegmentedButtonNumberOfSegmentsEnum {
 	two = 2,
 	three = 3,
 	four = 4,
 	five = 5,
 }
 
-/**
- * This tells how the corner of the button is going to be styled
- */
+// This tells how the corner of the button is going to be styled
 export enum SegmentedButtonStyleEnum {
 	round = "lg",
 	fullyRound = "full",
@@ -18,8 +16,8 @@ export enum SegmentedButtonStyleEnum {
 
 export interface SegmentedButtonProps {
 	className?: string;
-	size?: SegmentedButtonSizeEnum;
-	style?: SegmentedButtonStyleEnum;
+	numberOfSegments?: SegmentedButtonNumberOfSegmentsEnum;
+	edgeStyle?: SegmentedButtonStyleEnum;
 	activeButtonColour?: string;
 	buttonState: SegmentedButtonState;
 	buttonStateUpdater: React.Dispatch<
@@ -74,68 +72,64 @@ const selectedIcon = (
 /**
  * Segmented buttons help people select options, switch views, or sort elements
  *
- * The number of buttons shown depends on the size passed in.
- * NOTE:
- * - when size is two, only first and fifth buttons are shown.
- * - when size is three, only first, second and fifth buttons are shown.
- * - when size is four, only first, second, third and fifth buttons are shown
- * - when size is five, all buttons are shown
- *
+ * The number of buttons shown depends on the numberOfSegments passed in.
+ * **when numberOfSegments is two,** only first and fifth buttons are shown. **when numberOfSegments is three**, only first, second and fifth buttons are shown. **when numberOfSegments is four**, only first, second, third and fifth buttons are shown. **when numberOfSegments is five**, all buttons are shown.
  * You need to keep this in mind when passing callbacks for each buttons
  *
- * to learn more about material design segmented button visit https://m3.material.io/components/segmented-buttons/specs
- * 
- * **NOTE:**
- * For buttonConfiguration parameter, the description of each field is as follows:
- * ```
- * buttonsConfiguration: {
-		firstButton: {
-			name: string; // name or the label of the button, this is what will show on the button
-			icon?: string; // the icon of the button
-			disabled?: boolean; // this specify if the button is disabled or enabled
-			callback: () => void; // a function to call when the button is clicked
-		};
-	}
-	```
+ * To learn more about material design segmented button visit https://m3.material.io/components/segmented-buttons/specs
+ *
+ * @param {Object} props - The properties for the Segmented button.
+ * @param {string} [props.className] - Additional classes for the button.
+ * @param {string} [props.numberOfSegments=SegmentedButtonNumberOfSegmentsEnum.two] - The number of segments the button should contain.
+ * @param {string} [props.edgeStyle=SegmentedButtonStyleEnum.round] - The style of the edges of the segmented button. This could be round or fully round.
+ * @param {string} [props.activeButtonColour="bg-light-secondaryContainer"] - The colour the active button/segment should have; defaults to the material secondary container colour token.
+ * @param {Object} [props.buttonsConfiguration] - Configuration for each segment in the button.
+ * @param {string} [props.buttonsConfiguration.segment.name] - This is the name of the segment. Segment here could be the firstButton, secondButton etc.
+ * @param {string} [props.buttonsConfiguration.segment.icon] - This is the icon of the segment and its optional.
+ * @param {boolean} [props.buttonsConfiguration.segment.disabled] - This specify if the button is disabled or enabled. It defaults to false.
+ * @param {function} [props.buttonsConfiguration.segment.callback] - The function to call when the button is clicked.
+ *
+ * @returns {JSX.Element} The segmented button component.
  */
-function SegmentedButton({
+const SegmentedButton = ({
 	className = "",
-	size = SegmentedButtonSizeEnum.two,
-	style = SegmentedButtonStyleEnum.round,
+	numberOfSegments = SegmentedButtonNumberOfSegmentsEnum.two,
+	edgeStyle = SegmentedButtonStyleEnum.round,
 	activeButtonColour = "bg-light-secondaryContainer",
 	buttonsConfiguration,
 	buttonState,
 	buttonStateUpdater,
-}: SegmentedButtonProps) {
+}: SegmentedButtonProps) => {
 	const gridColumns =
-		size === SegmentedButtonSizeEnum.three
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.three
 			? "grid-cols-3"
-			: size === SegmentedButtonSizeEnum.four
+			: numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.four
 			? "grid-cols-4"
-			: size === SegmentedButtonSizeEnum.five
+			: numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.five
 			? "grid-cols-5"
 			: "grid-cols-2";
 
 	const firstButtonStyle =
-		style === SegmentedButtonStyleEnum.round
+		edgeStyle === SegmentedButtonStyleEnum.round
 			? "rounded-tl-lg rounded-bl-lg"
 			: "rounded-tl-full rounded-bl-full";
 
 	const lastButtonStyle =
-		style === SegmentedButtonStyleEnum.round
+		edgeStyle === SegmentedButtonStyleEnum.round
 			? "rounded-tr-lg rounded-br-lg"
 			: "rounded-tr-full rounded-br-full";
 
-	const sizeIsThree =
-		size === SegmentedButtonSizeEnum.three ||
-		size === SegmentedButtonSizeEnum.four ||
-		size === SegmentedButtonSizeEnum.five;
+	const threeSegment =
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.three ||
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.four ||
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.five;
 
-	const sizeIsFour =
-		size === SegmentedButtonSizeEnum.four ||
-		size === SegmentedButtonSizeEnum.five;
+	const fourSegments =
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.four ||
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.five;
 
-	const sizeIsFive = size === SegmentedButtonSizeEnum.five;
+	const fiveSegments =
+		numberOfSegments === SegmentedButtonNumberOfSegmentsEnum.five;
 
 	const firstButtonClickHandler = () => {
 		buttonStateUpdater({
@@ -194,11 +188,6 @@ function SegmentedButton({
 
 	return (
 		<>
-			{/* <Global
-				styles={css`
-					@import "./tailwind.css";
-				`}
-			/> */}
 			<div className={`${className} grid ${gridColumns} gap-0`}>
 				<button
 					className={`flex flex-row gap-2 outline outline-1 h-10 text-light-outline items-center justify-center hover:bg-light-surfaceContainerHigh ${firstButtonStyle} ${
@@ -228,7 +217,7 @@ function SegmentedButton({
 					</span>
 				</button>
 
-				{sizeIsThree && (
+				{threeSegment && (
 					<button
 						className={`flex flex-row outline outline-1 h-10 text-light-outline items-center justify-center  hover:bg-light-surfaceContainerHigh ${
 							buttonState.second && activeButtonColour
@@ -257,7 +246,7 @@ function SegmentedButton({
 					</button>
 				)}
 
-				{sizeIsFour && (
+				{fourSegments && (
 					<button
 						className={`flex flex-row outline outline-1 h-10 text-light-outline items-center justify-center hover:bg-light-surfaceContainerHigh ${
 							buttonState.third && activeButtonColour
@@ -286,7 +275,7 @@ function SegmentedButton({
 					</button>
 				)}
 
-				{sizeIsFive && (
+				{fiveSegments && (
 					<button
 						className={`flex flex-row outline outline-1 h-10 text-light-outline items-center justify-center hover:bg-light-surfaceContainerHigh ${
 							buttonState.fourth && activeButtonColour
@@ -342,6 +331,6 @@ function SegmentedButton({
 			</div>
 		</>
 	);
-}
+};
 
 export default SegmentedButton;
