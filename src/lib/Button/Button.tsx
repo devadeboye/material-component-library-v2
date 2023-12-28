@@ -31,7 +31,7 @@ export enum ButtonBorderEnum {
  * @param {Object} props - The properties for the button.
  * @param {string} [props.height="h-10"] - Tailwind height command to configure the height of the button.
  * @param {string} [props.borderRadius=ButtonBorderEnum.full] - The border radius of the button. Default is ButtonBorderEnum.full.
- * @param {Object} [props.variant] - The variant of the button. This could be filled, outlined etc.
+ * @param {string} [props.variant] - The variant of the button. This could be filled, outlined etc.
  * @param {string} [props.className] - Additional classes for the button.
  * @param {string} [props.name] - The name or label of the button.
  * @param {string} [props.icon] - The icon to be displayed on the button.

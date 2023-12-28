@@ -12,7 +12,6 @@
     *   [Parameters][8]
 *   [TextField][9]
     *   [Parameters][10]
-*   [displayLabel][11]
 
 ## Button
 
@@ -20,17 +19,17 @@ Common button component for UI actions.
 
 ### Parameters
 
-*   `props` **[Object][12]** The properties for the button.
+*   `props` **[Object][11]** The properties for the button.
 
-    *   `props.height` **[string][13]** Tailwind height command to configure the height of the button. (optional, default `"h-10"`)
-    *   `props.borderRadius` **[string][13]** The border radius of the button. Default is ButtonBorderEnum.full. (optional, default `ButtonBorderEnum.full`)
-    *   `props.variant` **[Object][12]?** The variant of the button. This could be filled, outlined etc.
-    *   `props.className` **[string][13]?** Additional classes for the button.
-    *   `props.name` **[string][13]?** The name or label of the button.
-    *   `props.icon` **[string][13]?** The icon to be displayed on the button.
-    *   `props.width` **[string][13]** The width of the button. (optional, default `"w-full"`)
-    *   `props.onClick` **[function][14]?** The function to be executed on button click.
-    *   `props.disabled` **[boolean][15]** Indicates whether the button is disabled. (optional, default `false`)
+    *   `props.height` **[string][12]** Tailwind height command to configure the height of the button. (optional, default `"h-10"`)
+    *   `props.borderRadius` **[string][12]** The border radius of the button. Default is ButtonBorderEnum.full. (optional, default `ButtonBorderEnum.full`)
+    *   `props.variant` **[string][12]?** The variant of the button. This could be filled, outlined etc.
+    *   `props.className` **[string][12]?** Additional classes for the button.
+    *   `props.name` **[string][12]?** The name or label of the button.
+    *   `props.icon` **[string][12]?** The icon to be displayed on the button.
+    *   `props.width` **[string][12]** The width of the button. (optional, default `"w-full"`)
+    *   `props.onClick` **[function][13]?** The function to be executed on button click.
+    *   `props.disabled` **[boolean][14]** Indicates whether the button is disabled. (optional, default `false`)
 
 Returns **JSX.Element** The button component.
 
@@ -42,17 +41,17 @@ The number of buttons shown depends on the numberOfSegments passed in.
 **when numberOfSegments is two,** only first and fifth buttons are shown. **when numberOfSegments is three**, only first, second and fifth buttons are shown. **when numberOfSegments is four**, only first, second, third and fifth buttons are shown. **when numberOfSegments is five**, all buttons are shown.
 You need to keep this in mind when passing callbacks for each buttons
 
-To learn more about material design segmented button visit [https://m3.material.io/components/segmented-buttons/specs][16]
+To learn more about material design segmented button visit [https://m3.material.io/components/segmented-buttons/specs][15]
 
 ### Parameters
 
-*   `props` **[Object][12]** The properties for the Segmented button.
+*   `props` **[Object][11]** The properties for the Segmented button.
 
-    *   `props.className` **[string][13]?** Additional classes for the button. (optional, default `""`)
-    *   `props.numberOfSegments` **[string][13]** The number of segments the button should contain. (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
-    *   `props.edgeStyle` **[string][13]** The style of the edges of the segmented button. This could be round or fully round. (optional, default `SegmentedButtonStyleEnum.round`)
-    *   `props.activeButtonColour` **[string][13]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
-    *   `props.buttonsConfiguration` **[Object][12]?** Configuration for each segment in the button.
+    *   `props.className` **[string][12]?** Additional classes for the button. (optional, default `""`)
+    *   `props.numberOfSegments` **[string][12]** The number of segments the button should contain. (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
+    *   `props.edgeStyle` **[string][12]** The style of the edges of the segmented button. This could be round or fully round. (optional, default `SegmentedButtonStyleEnum.round`)
+    *   `props.activeButtonColour` **[string][12]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
+    *   `props.buttonsConfiguration` **[Object][11]?** Configuration for each segment in the button.
     *   `props.buttonState` &#x20;
     *   `props.buttonStateUpdater` &#x20;
 
@@ -136,10 +135,6 @@ This is a textfield component styled according to google's material design speci
 
 Returns **any** textfield jsx element
 
-## displayLabel
-
-label when populated
-
 [1]: #button
 
 [2]: #parameters
@@ -160,14 +155,12 @@ label when populated
 
 [10]: #parameters-4
 
-[11]: #displaylabel
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
-[16]: https://m3.material.io/components/segmented-buttons/specs
+[15]: https://m3.material.io/components/segmented-buttons/specs

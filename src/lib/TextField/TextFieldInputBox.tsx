@@ -44,7 +44,7 @@ const TextFieldInputBox = (props: TextFieldInputBoxProps) => {
 	return (
 		<div className="w-full h-12">
 			{
-				/** label when populated */
+				// label when populated
 				displayLabel && (
 					<label
 						htmlFor={id}
