@@ -1,16 +1,35 @@
 import React from "react";
 import { SegmentedButtonState } from "./interfaces/button.interface";
 
+/**
+ * Enum for the number of segment a SegmentedButton component should have
+ * @readonly
+ * @enum {number}
+ */
 export enum SegmentedButtonNumberOfSegmentsEnum {
+	/** @description only first and fifth buttons are shown */
 	two = 2,
+
+	/** @description only first, second and fifth buttons are shown */
 	three = 3,
+
+	/** @description only first, second, third and fifth buttons are shown */
 	four = 4,
+
+	/** @description all buttons are shown */
 	five = 5,
 }
 
-// This tells how the corner of the button is going to be styled
+/**
+ * This tells how the corner of the button is going to be styled
+ * @readonly
+ * @enum {string}
+ */
 export enum SegmentedButtonStyleEnum {
+	/** @description the edge will be slightly rounded. This uses the "lg" class in tailwindcss */
 	round = "lg",
+
+	/** @description the edge will be fully rounded. This uses the "full" class in tailwindcss */
 	fullyRound = "full",
 }
 

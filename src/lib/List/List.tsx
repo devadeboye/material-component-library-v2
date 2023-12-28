@@ -4,10 +4,15 @@ import OneLineListItem from "./oneLineListItem";
 import TwoLineListItem from "./twoLineListItem";
 import ThreeLinesListItem from "./treeLinesListItem";
 
+/**
+ * Enum for the number of lines a list item should have
+ * @readonly
+ * @enum {string}
+ */
 export enum ListItemConditionEnum {
-	oneLine = "one-line",
-	twoLines = "two-lines",
-	threeLines = "three-lines",
+	oneLine = "one-line", // TODO add documentation for this
+	twoLines = "two-lines", // TODO add documentation for this
+	threeLines = "three-lines", // TODO add documentation for this
 }
 
 export interface ItemDto<T> {
