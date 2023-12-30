@@ -4,14 +4,16 @@
 
 *   [Button][1]
     *   [Parameters][2]
-*   [SegmentedButton][3]
+*   [Fab][3]
     *   [Parameters][4]
-*   [List][5]
+*   [SegmentedButton][5]
     *   [Parameters][6]
-*   [Modal][7]
+*   [List][7]
     *   [Parameters][8]
-*   [TextField][9]
+*   [Modal][9]
     *   [Parameters][10]
+*   [TextField][11]
+    *   [Parameters][12]
 
 ## Button
 
@@ -19,39 +21,55 @@ Common button component for UI actions.
 
 ### Parameters
 
-*   `props` **[Object][11]** The properties for the button.
+*   `props` **[Object][13]** The properties for the button.
 
-    *   `props.height` **[string][12]** Tailwind height command to configure the height of the button. (optional, default `"h-10"`)
-    *   `props.borderRadius` **[string][12]** The border radius of the button. Default is ButtonBorderEnum.full. (optional, default `ButtonBorderEnum.full`)
-    *   `props.variant` **[string][12]?** The variant of the button. This could be filled, outlined etc.
-    *   `props.className` **[string][12]?** Additional classes for the button.
-    *   `props.name` **[string][12]?** The name or label of the button.
-    *   `props.icon` **[string][12]?** The icon to be displayed on the button.
-    *   `props.width` **[string][12]** The width of the button. (optional, default `"w-full"`)
-    *   `props.onClick` **[function][13]?** The function to be executed on button click.
-    *   `props.disabled` **[boolean][14]** Indicates whether the button is disabled. (optional, default `false`)
+    *   `props.height` **[string][14]** Tailwind height command to configure the height of the button. (optional, default `"h-10"`)
+    *   `props.borderRadius` **[string][14]** The border radius of the button. Default is ButtonBorderEnum.full. (optional, default `ButtonBorderEnum.full`)
+    *   `props.variant` **[string][14]?** The variant of the button. This could be filled, outlined etc.
+    *   `props.className` **[string][14]?** Additional classes for the button.
+    *   `props.name` **[string][14]?** The name or label of the button.
+    *   `props.icon` **[string][14]?** The icon to be displayed on the button.
+    *   `props.width` **[string][14]** The width of the button. (optional, default `"w-full"`)
+    *   `props.onClick` **[function][15]?** The function to be executed on button click.
+    *   `props.disabled` **[boolean][16]** Indicates whether the button is disabled. (optional, default `false`)
 
 Returns **JSX.Element** The button component.
+
+## Fab
+
+Floating action buttons (FABs) help people take primary actions
+
+Type: React.FC\<FabProps>
+
+### Parameters
+
+*   `props` **[Object][13]** The properties for the button.
+
+    *   `props.icon` **[string][14]?** The icon to display on the button.
+    *   `props.fabType` **[string][14]** The type of FAB to render (optional, default `FabTypeEnum.FAB`)
+    *   `props.buttonProps` **...any**&#x20;
+
+Returns **JSX.Element** The FAB component.
 
 ## SegmentedButton
 
 Segmented buttons help people select options, switch views, or sort elements
 
-The number of buttons shown depends on the numberOfSegments passed in.
-**when numberOfSegments is two,** only first and fifth buttons are shown. **when numberOfSegments is three**, only first, second and fifth buttons are shown. **when numberOfSegments is four**, only first, second, third and fifth buttons are shown. **when numberOfSegments is five**, all buttons are shown.
-You need to keep this in mind when passing callbacks for each buttons
-
-To learn more about material design segmented button visit [https://m3.material.io/components/segmented-buttons/specs][15]
+To learn more about material design segmented button visit [https://m3.material.io/components/segmented-buttons/specs][17]
 
 ### Parameters
 
-*   `props` **[Object][11]** The properties for the Segmented button.
+*   `props` **[Object][13]** The properties for the Segmented button.
 
-    *   `props.className` **[string][12]?** Additional classes for the button. (optional, default `""`)
-    *   `props.numberOfSegments` **[string][12]** The number of segments the button should contain. (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
-    *   `props.edgeStyle` **[string][12]** The style of the edges of the segmented button. This could be round or fully round. (optional, default `SegmentedButtonStyleEnum.round`)
-    *   `props.activeButtonColour` **[string][12]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
-    *   `props.buttonsConfiguration` **[Object][11]?** Configuration for each segment in the button.
+    *   `props.className` **[string][14]?** Additional classes for the button. (optional, default `""`)
+    *   `props.numberOfSegments` **[string][14]** The number of segments the button should contain. The number of buttons shown depends on the numberOfSegments passed in.*   when numberOfSegments is two, only first and fifth buttons are shown.
+        *   when numberOfSegments is three, only first, second and fifth buttons are shown.
+        *   when numberOfSegments is four, only first, second, third and fifth buttons are shown.
+        *   when numberOfSegments is five, all buttons are shown.You need to keep this in mind when passing callbacks for each buttons (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
+    *   `props.edgeStyle` **[string][14]** This tells how the corner of the button is going to be styled. This could be round or fully round.*   when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
+        *   when you pass in fully round, the edge will be fully rounded. This uses the "full" class in tailwindcss (optional, default `SegmentedButtonStyleEnum.round`)
+    *   `props.activeButtonColour` **[string][14]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
+    *   `props.buttonsConfiguration` **[Object][13]?** Configuration for each segment in the button.
     *   `props.buttonState` &#x20;
     *   `props.buttonStateUpdater` &#x20;
 
@@ -59,48 +77,48 @@ Returns **JSX.Element** The segmented button component.
 
 ## List
 
+Lists are continuous, vertical indexes of text and images
+
 ### Parameters
 
-*   `$0` **ListProps\<T>**&#x20;
+*   `props` **[Object][13]** The properties for the Segmented button.
 
-    *   `$0.className` &#x20;
-    *   `$0.items` &#x20;
-    *   `$0.leading` &#x20;
-    *   `$0.trailing` &#x20;
-    *   `$0.divider` &#x20;
-    *   `$0.dividerStyle` &#x20;
-    *   `$0.condition`   (optional, default `ListItemConditionEnum.oneLine`)
-    *   `$0.onListItemClick`   (optional, default `()=>{}`)
-*   `className`  are custom css classes you want to pass to the list
-*   `leading`  this indicate if the list item is going to have a leading icon. its optional and it defaults to empty string
-*   `headline`  this is the main content in the list item
-*   `trailing`  this indicate if the list item is going to have a trailing icon. its optional and it defaults to empty string
-*   `divider`  this indicates if the list is going to be seperated by dividers
-*   `items`  is the array of items to display in the list
-*   `condition`  this describe the type of list item. it can be one-line, two-lines, three-lines
-*   `onListItemClick`  this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
+    *   `props.className` **[string][14]?** Additional classes for the list
+    *   `props.items` **[Array][18]\<ItemDto>** is the array of items to display in the list
+
+        *   `props.items.id` **([string][14] | [number][19])** The id for each list item. This is necessary incases where you need to reference each item in the list uniquely
+        *   `props.items.headline` **[string][14]** This is the main content in the list item
+        *   `props.items.null` **[string][14]** \[overline] - An overline drawing attention to the list item
+        *   `props.items.null` **[string][14]** \[supportingText] - Text explaining the list item
+        *   `props.items.meta` **GenericType** Additional information about the list item
+    *   `props.leading` **[string][14]** Icon to display at the beginging of each list item. Its optional and it defaults to empty string
+    *   `props.trailing` **[string][14]** Icon to display at the end of each list item. Its optional and it defaults to empty string
+    *   `props.divider` **[boolean][16]** This indicates if the list is going to be seperated by dividers
+    *   `props.dividerStyle` **[Object][13]** Additional information about the list item
+
+        *   `props.dividerStyle.type` **[string][14]** this describe the type of divider; values can be full-width, inset, middle-inset.*   when dividerStyle type is fullWidth, the divider takes the whole width of the list item
+        *   `props.dividerStyle.marginAfterDivider` **[boolean][16]** this determines if there is going to be a margin after the divider or not
+    *   `props.condition` **[string][14]?** This describe the type of list item. it can be one-line, two-lines, three-lines (optional, default `ListItemConditionEnum.oneLine`)
+    *   `props.onListItemClick` **[function][15]?** This is an optional function to call on each list item when clicked.  The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item. (optional, default `()=>{}`)
+
+Returns **JSX.Element** The List component.
 
 ## Modal
 
+Modal
+
 ### Parameters
 
-*   `$0` **ModalProps**&#x20;
+*   `props` **[Object][13]** The properties for the Modal.
 
-    *   `$0.onHideOverlay` &#x20;
-    *   `$0.children` &#x20;
-    *   `$0.overlayRoot` &#x20;
-    *   `$0.backdropColour`   (optional, default `"bg-dark-scrim/75"`)
-    *   `$0.maxHeight`   (optional, default `"max-h-[70%] sm:max-h-[60%]"`)
-    *   `$0.topPosition`   (optional, default `"top-[32vh] sm:top-[30vh]"`)
-    *   `$0.leftPosition`   (optional, default `"left-0 sm:left-[30%]"`)
-    *   `$0.width`   (optional, default `"w-full sm:w-2/5"`)
-*   `onHideOverlay`  *(func)* this is a callback function that contains logic to hide the overlay on click
-*   `children`  *(ReactNode | ReactNode\[])* this are the elements to display in the modal
-*   `overlayRoot`  *(string)* location in the dom where the modal should be displayed... its a string
-*   `backdropColour`  *(string)* optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
-*   `maxHeight`  *(string)* maximum height of the modal
-*   `topPosition`  *(string)* the position of the modal on the top side of the screen
-*   `leftPosition`  *(string)* the position of the modal on the left side of the screen
+    *   `props.onHideOverlay` **[function][15]** this is a callback function that contains logic to hide the overlay on click
+    *   `props.children` **(ReactNode | [Array][18]\<ReactNode>)** this are the elements to display in the modal
+    *   `props.overlayRoot` **[string][14]** location in the dom where the modal should be displayed... its a string
+    *   `props.backdropColour` **[string][14]?** optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity (optional, default `"bg-dark-scrim/75"`)
+    *   `props.maxHeight` **[string][14]?** maximum height of the modal (optional, default `"max-h-[70%] sm:max-h-[60%]"`)
+    *   `props.topPosition` **[string][14]?** the position of the modal on the top side of the screen (optional, default `"top-[32vh] sm:top-[30vh]"`)
+    *   `props.leftPosition` **[string][14]?** the position of the modal on the left side of the screen (optional, default `"left-0 sm:left-[30%]"`)
+    *   `props.width`   (optional, default `"w-full sm:w-2/5"`)
 
 ## TextField
 
@@ -108,59 +126,57 @@ This is a textfield component styled according to google's material design speci
 
 ### Parameters
 
-*   `$0` **TextFieldProps**&#x20;
+*   `props` **[Object][13]** The properties for the TextField.
 
-    *   `$0.leading` &#x20;
-    *   `$0.trailing` &#x20;
-    *   `$0.supportingText` &#x20;
-    *   `$0.label` &#x20;
-    *   `$0.contentType` &#x20;
-    *   `$0.style` &#x20;
-    *   `$0.className` &#x20;
-    *   `$0.inputRef` &#x20;
-    *   `$0.onBlur` &#x20;
-    *   `$0.onChange` &#x20;
-    *   `$0.state` &#x20;
-    *   `$0.width`   (optional, default `"w-full"`)
-*   `leading`  this is an optional icon to be displayed at the start of the textfield
-*   `trailing`  this is an optional icon to be displayed at the end of the textfield
-*   `supportingText`  this is an optional text that further explain the textfield
-*   `label`  this specify the label of the textfield
-*   `contentType`  the type of content the textfield is holding. This could be button, checkbox, date, color etc.
-*   `className`  a field to pass in additional tailwind class to still the textfield
-*   `width`  the width of the textfield. This accept only tailwind classes
-*   `state`  react useState instance to manage the state of the textfield
-*   `onBlur`  callback function to call when the textfield lose focus
-*   `onChange`  callback function to call when the textfield content changes
+    *   `props.leading` **[string][14]?** This is an optional icon to be displayed at the start of the textfield
+    *   `props.trailing` **[string][14]?** This is an optional icon to be displayed at the end of the textfield
+    *   `props.supportingText` **[string][14]?** This is an optional text that further explain the textfield
+    *   `props.label` **[string][14]** This specify the label of the textfield
+    *   `props.contentType` **[string][14]** The type of content the textfield is holding. This could be button, checkbox, date, color etc.
+    *   `props.className` **[string][14]?** A field to pass in additional tailwind class to still the textfield
+    *   `props.onBlur` **[function][15]?** Callback function to call when the textfield lose focus
+    *   `props.onChange` **[function][15]?** Callback function to call when the textfield content changes
+    *   `props.state` **[Object][13]** An object consisting a react state and the dispatch function to set the state.
+    *   `props.width` **[string][14]?** The width of the textfield. This accept only tailwind classes (optional, default `"w-full"`)
+    *   `props.style` &#x20;
+    *   `props.inputRef` &#x20;
 
-Returns **any** textfield jsx element
+Returns **any** Textfield jsx element
 
 [1]: #button
 
 [2]: #parameters
 
-[3]: #segmentedbutton
+[3]: #fab
 
 [4]: #parameters-1
 
-[5]: #list
+[5]: #segmentedbutton
 
 [6]: #parameters-2
 
-[7]: #modal
+[7]: #list
 
 [8]: #parameters-3
 
-[9]: #textfield
+[9]: #modal
 
 [10]: #parameters-4
 
-[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[11]: #textfield
 
-[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[12]: #parameters-5
 
-[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[15]: https://m3.material.io/components/segmented-buttons/specs
+[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[17]: https://m3.material.io/components/segmented-buttons/specs
+
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
