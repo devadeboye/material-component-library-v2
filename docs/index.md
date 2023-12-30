@@ -6,25 +6,17 @@
     *   [Parameters][2]
 *   [Fab][3]
     *   [Parameters][4]
-*   [SegmentedButtonNumberOfSegmentsEnum][5]
-    *   [two][6]
-    *   [three][7]
-    *   [four][8]
-    *   [five][9]
-*   [SegmentedButtonStyleEnum][10]
-    *   [round][11]
-    *   [fullyRound][12]
-*   [SegmentedButton][13]
-    *   [Parameters][14]
-*   [DividerStyleEnum][15]
-    *   [fullWidth][16]
-*   [ListItemConditionEnum][17]
-*   [List][18]
-    *   [Parameters][19]
-*   [Modal][20]
-    *   [Parameters][21]
-*   [TextField][22]
-    *   [Parameters][23]
+*   [SegmentedButton][5]
+    *   [Parameters][6]
+*   [DividerStyleEnum][7]
+    *   [fullWidth][8]
+*   [ListItemConditionEnum][9]
+*   [List][10]
+    *   [Parameters][11]
+*   [Modal][12]
+    *   [Parameters][13]
+*   [TextField][14]
+    *   [Parameters][15]
 
 ## Button
 
@@ -32,17 +24,17 @@ Common button component for UI actions.
 
 ### Parameters
 
-*   `props` **[Object][24]** The properties for the button.
+*   `props` **[Object][16]** The properties for the button.
 
-    *   `props.height` **[string][25]** Tailwind height command to configure the height of the button. (optional, default `"h-10"`)
-    *   `props.borderRadius` **[string][25]** The border radius of the button. Default is ButtonBorderEnum.full. (optional, default `ButtonBorderEnum.full`)
-    *   `props.variant` **[string][25]?** The variant of the button. This could be filled, outlined etc.
-    *   `props.className` **[string][25]?** Additional classes for the button.
-    *   `props.name` **[string][25]?** The name or label of the button.
-    *   `props.icon` **[string][25]?** The icon to be displayed on the button.
-    *   `props.width` **[string][25]** The width of the button. (optional, default `"w-full"`)
-    *   `props.onClick` **[function][26]?** The function to be executed on button click.
-    *   `props.disabled` **[boolean][27]** Indicates whether the button is disabled. (optional, default `false`)
+    *   `props.height` **[string][17]** Tailwind height command to configure the height of the button. (optional, default `"h-10"`)
+    *   `props.borderRadius` **[string][17]** The border radius of the button. Default is ButtonBorderEnum.full. (optional, default `ButtonBorderEnum.full`)
+    *   `props.variant` **[string][17]?** The variant of the button. This could be filled, outlined etc.
+    *   `props.className` **[string][17]?** Additional classes for the button.
+    *   `props.name` **[string][17]?** The name or label of the button.
+    *   `props.icon` **[string][17]?** The icon to be displayed on the button.
+    *   `props.width` **[string][17]** The width of the button. (optional, default `"w-full"`)
+    *   `props.onClick` **[function][18]?** The function to be executed on button click.
+    *   `props.disabled` **[boolean][19]** Indicates whether the button is disabled. (optional, default `false`)
 
 Returns **JSX.Element** The button component.
 
@@ -54,81 +46,33 @@ Type: React.FC\<FabProps>
 
 ### Parameters
 
-*   `props` **[Object][24]** The properties for the button.
+*   `props` **[Object][16]** The properties for the button.
 
-    *   `props.icon` **[string][25]?** The icon to display on the button.
-    *   `props.fabType` **[string][25]** The type of FAB to render (optional, default `FabTypeEnum.FAB`)
+    *   `props.icon` **[string][17]?** The icon to display on the button.
+    *   `props.fabType` **[string][17]** The type of FAB to render (optional, default `FabTypeEnum.FAB`)
     *   `props.buttonProps` **...any**&#x20;
 
 Returns **JSX.Element** The FAB component.
-
-## SegmentedButtonNumberOfSegmentsEnum
-
-Enum for the number of segment a SegmentedButton component should have
-
-Type: [number][28]
-
-### two
-
-only first and fifth buttons are shown
-
-Type: [number][28]
-
-### three
-
-only first, second and fifth buttons are shown
-
-Type: [number][28]
-
-### four
-
-only first, second, third and fifth buttons are shown
-
-Type: [number][28]
-
-### five
-
-all buttons are shown
-
-Type: [number][28]
-
-## SegmentedButtonStyleEnum
-
-This tells how the corner of the button is going to be styled
-
-Type: [string][25]
-
-### round
-
-the edge will be slightly rounded. This uses the "lg" class in tailwindcss
-
-Type: [string][25]
-
-### fullyRound
-
-the edge will be fully rounded. This uses the "full" class in tailwindcss
-
-Type: [string][25]
 
 ## SegmentedButton
 
 Segmented buttons help people select options, switch views, or sort elements
 
-The number of buttons shown depends on the numberOfSegments passed in.
-**when numberOfSegments is two,** only first and fifth buttons are shown. **when numberOfSegments is three**, only first, second and fifth buttons are shown. **when numberOfSegments is four**, only first, second, third and fifth buttons are shown. **when numberOfSegments is five**, all buttons are shown.
-You need to keep this in mind when passing callbacks for each buttons
-
-To learn more about material design segmented button visit [https://m3.material.io/components/segmented-buttons/specs][29]
+To learn more about material design segmented button visit [https://m3.material.io/components/segmented-buttons/specs][20]
 
 ### Parameters
 
-*   `props` **[Object][24]** The properties for the Segmented button.
+*   `props` **[Object][16]** The properties for the Segmented button.
 
-    *   `props.className` **[string][25]?** Additional classes for the button. (optional, default `""`)
-    *   `props.numberOfSegments` **[string][25]** The number of segments the button should contain. (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
-    *   `props.edgeStyle` **[string][25]** The style of the edges of the segmented button. This could be round or fully round. (optional, default `SegmentedButtonStyleEnum.round`)
-    *   `props.activeButtonColour` **[string][25]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
-    *   `props.buttonsConfiguration` **[Object][24]?** Configuration for each segment in the button.
+    *   `props.className` **[string][17]?** Additional classes for the button. (optional, default `""`)
+    *   `props.numberOfSegments` **[string][17]** The number of segments the button should contain. The number of buttons shown depends on the numberOfSegments passed in.*   when numberOfSegments is two, only first and fifth buttons are shown.
+        *   when numberOfSegments is three, only first, second and fifth buttons are shown.
+        *   when numberOfSegments is four, only first, second, third and fifth buttons are shown.
+        *   when numberOfSegments is five, all buttons are shown.You need to keep this in mind when passing callbacks for each buttons (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
+    *   `props.edgeStyle` **[string][17]** This tells how the corner of the button is going to be styled. This could be round or fully round.*   when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
+        *   when you pass in fully round, the edge will be fully rounded. This uses the "full" class in tailwindcss (optional, default `SegmentedButtonStyleEnum.round`)
+    *   `props.activeButtonColour` **[string][17]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
+    *   `props.buttonsConfiguration` **[Object][16]?** Configuration for each segment in the button.
     *   `props.buttonState` &#x20;
     *   `props.buttonStateUpdater` &#x20;
 
@@ -138,19 +82,19 @@ Returns **JSX.Element** The segmented button component.
 
 Enum for list divider styles
 
-Type: [string][25]
+Type: [string][17]
 
 ### fullWidth
 
 divider takes the whole width of the list item
 
-Type: [string][25]
+Type: [string][17]
 
 ## ListItemConditionEnum
 
 Enum for the number of lines a list item should have
 
-Type: [string][25]
+Type: [string][17]
 
 ## List
 
@@ -158,25 +102,25 @@ Lists are continuous, vertical indexes of text and images
 
 ### Parameters
 
-*   `props` **[Object][24]** The properties for the Segmented button.
+*   `props` **[Object][16]** The properties for the Segmented button.
 
-    *   `props.className` **[string][25]?** Additional classes for the list
-    *   `props.items` **[Array][30]\<ItemDto>** is the array of items to display in the list
+    *   `props.className` **[string][17]?** Additional classes for the list
+    *   `props.items` **[Array][21]\<ItemDto>** is the array of items to display in the list
 
-        *   `props.items.id` **([string][25] | [number][28])** The id for each list item. This is necessary incases where you need to reference each item in the list uniquely
-        *   `props.items.headline` **[string][25]** This is the main content in the list item
-        *   `props.items.null` **[string][25]** \[overline] - An overline drawing attention to the list item
-        *   `props.items.null` **[string][25]** \[supportingText] - Text explaining the list item
+        *   `props.items.id` **([string][17] | [number][22])** The id for each list item. This is necessary incases where you need to reference each item in the list uniquely
+        *   `props.items.headline` **[string][17]** This is the main content in the list item
+        *   `props.items.null` **[string][17]** \[overline] - An overline drawing attention to the list item
+        *   `props.items.null` **[string][17]** \[supportingText] - Text explaining the list item
         *   `props.items.meta` **GenericType** Additional information about the list item
-    *   `props.leading` **[string][25]** Icon to display at the beginging of each list item. Its optional and it defaults to empty string
-    *   `props.trailing` **[string][25]** Icon to display at the end of each list item. Its optional and it defaults to empty string
-    *   `props.divider` **[boolean][27]** This indicates if the list is going to be seperated by dividers
-    *   `props.dividerStyle` **[Object][24]** Additional information about the list item
+    *   `props.leading` **[string][17]** Icon to display at the beginging of each list item. Its optional and it defaults to empty string
+    *   `props.trailing` **[string][17]** Icon to display at the end of each list item. Its optional and it defaults to empty string
+    *   `props.divider` **[boolean][19]** This indicates if the list is going to be seperated by dividers
+    *   `props.dividerStyle` **[Object][16]** Additional information about the list item
 
-        *   `props.dividerStyle.type` **[string][25]** this describe the type of divider. values can be full-width, inset, middle-inset
-        *   `props.dividerStyle.marginAfterDivider` **[boolean][27]** this determines if there is going to be a margin after the divider or not
-    *   `props.condition` **[string][25]?** this describe the type of list item. it can be one-line, two-lines, three-lines (optional, default `ListItemConditionEnum.oneLine`)
-    *   `props.onListItemClick` **[function][26]?** this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item. (optional, default `()=>{}`)
+        *   `props.dividerStyle.type` **[string][17]** this describe the type of divider. values can be full-width, inset, middle-inset
+        *   `props.dividerStyle.marginAfterDivider` **[boolean][19]** this determines if there is going to be a margin after the divider or not
+    *   `props.condition` **[string][17]?** this describe the type of list item. it can be one-line, two-lines, three-lines (optional, default `ListItemConditionEnum.oneLine`)
+    *   `props.onListItemClick` **[function][18]?** this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item. (optional, default `()=>{}`)
 
 Returns **JSX.Element** The List component.
 
@@ -243,54 +187,38 @@ Returns **any** textfield jsx element
 
 [4]: #parameters-1
 
-[5]: #segmentedbuttonnumberofsegmentsenum
+[5]: #segmentedbutton
 
-[6]: #two
+[6]: #parameters-2
 
-[7]: #three
+[7]: #dividerstyleenum
 
-[8]: #four
+[8]: #fullwidth
 
-[9]: #five
+[9]: #listitemconditionenum
 
-[10]: #segmentedbuttonstyleenum
+[10]: #list
 
-[11]: #round
+[11]: #parameters-3
 
-[12]: #fullyround
+[12]: #modal
 
-[13]: #segmentedbutton
+[13]: #parameters-4
 
-[14]: #parameters-2
+[14]: #textfield
 
-[15]: #dividerstyleenum
+[15]: #parameters-5
 
-[16]: #fullwidth
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[17]: #listitemconditionenum
+[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[18]: #list
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[19]: #parameters-3
+[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[20]: #modal
+[20]: https://m3.material.io/components/segmented-buttons/specs
 
-[21]: #parameters-4
+[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[22]: #textfield
-
-[23]: #parameters-5
-
-[24]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
-[25]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[26]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
-[27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
-[28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
-[29]: https://m3.material.io/components/segmented-buttons/specs
-
-[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

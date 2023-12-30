@@ -1,35 +1,15 @@
 import React from "react";
 import { SegmentedButtonState } from "./interfaces/button.interface";
 
-/**
- * Enum for the number of segment a SegmentedButton component should have
- * @readonly
- * @enum {number}
- */
 export enum SegmentedButtonNumberOfSegmentsEnum {
-	/** @description only first and fifth buttons are shown */
 	two = 2,
-
-	/** @description only first, second and fifth buttons are shown */
 	three = 3,
-
-	/** @description only first, second, third and fifth buttons are shown */
 	four = 4,
-
-	/** @description all buttons are shown */
 	five = 5,
 }
 
-/**
- * This tells how the corner of the button is going to be styled
- * @readonly
- * @enum {string}
- */
 export enum SegmentedButtonStyleEnum {
-	/** @description the edge will be slightly rounded. This uses the "lg" class in tailwindcss */
 	round = "lg",
-
-	/** @description the edge will be fully rounded. This uses the "full" class in tailwindcss */
 	fullyRound = "full",
 }
 
@@ -91,16 +71,22 @@ const selectedIcon = (
 /**
  * Segmented buttons help people select options, switch views, or sort elements
  *
- * The number of buttons shown depends on the numberOfSegments passed in.
- * **when numberOfSegments is two,** only first and fifth buttons are shown. **when numberOfSegments is three**, only first, second and fifth buttons are shown. **when numberOfSegments is four**, only first, second, third and fifth buttons are shown. **when numberOfSegments is five**, all buttons are shown.
- * You need to keep this in mind when passing callbacks for each buttons
- *
  * To learn more about material design segmented button visit https://m3.material.io/components/segmented-buttons/specs
  *
  * @param {Object} props - The properties for the Segmented button.
  * @param {string} [props.className] - Additional classes for the button.
- * @param {string} [props.numberOfSegments=SegmentedButtonNumberOfSegmentsEnum.two] - The number of segments the button should contain.
- * @param {string} [props.edgeStyle=SegmentedButtonStyleEnum.round] - The style of the edges of the segmented button. This could be round or fully round.
+ * @param {string} [props.numberOfSegments=SegmentedButtonNumberOfSegmentsEnum.two] - The number of segments the button should contain. The number of buttons shown depends on the numberOfSegments passed in.
+ * - when numberOfSegments is two, only first and fifth buttons are shown.
+ * - when numberOfSegments is three, only first, second and fifth buttons are shown.
+ * - when numberOfSegments is four, only first, second, third and fifth buttons are shown.
+ * - when numberOfSegments is five, all buttons are shown.
+ *
+ * You need to keep this in mind when passing callbacks for each buttons
+ *
+ * @param {string} [props.edgeStyle=SegmentedButtonStyleEnum.round] - This tells how the corner of the button is going to be styled. This could be round or fully round.
+ * - when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
+ * - when you pass in fully round, the edge will be fully rounded. This uses the "full" class in tailwindcss
+ *
  * @param {string} [props.activeButtonColour="bg-light-secondaryContainer"] - The colour the active button/segment should have; defaults to the material secondary container colour token.
  * @param {Object} [props.buttonsConfiguration] - Configuration for each segment in the button.
  * @param {string} [props.buttonsConfiguration.segment.name] - This is the name of the segment. Segment here could be the firstButton, secondButton etc.
