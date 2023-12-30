@@ -105,25 +105,20 @@ Returns **JSX.Element** The List component.
 
 ## Modal
 
+Modal
+
 ### Parameters
 
-*   `$0` **ModalProps**&#x20;
+*   `props` **[Object][13]** The properties for the Modal.
 
-    *   `$0.onHideOverlay` &#x20;
-    *   `$0.children` &#x20;
-    *   `$0.overlayRoot` &#x20;
-    *   `$0.backdropColour`   (optional, default `"bg-dark-scrim/75"`)
-    *   `$0.maxHeight`   (optional, default `"max-h-[70%] sm:max-h-[60%]"`)
-    *   `$0.topPosition`   (optional, default `"top-[32vh] sm:top-[30vh]"`)
-    *   `$0.leftPosition`   (optional, default `"left-0 sm:left-[30%]"`)
-    *   `$0.width`   (optional, default `"w-full sm:w-2/5"`)
-*   `onHideOverlay`  *(func)* this is a callback function that contains logic to hide the overlay on click
-*   `children`  *(ReactNode | ReactNode\[])* this are the elements to display in the modal
-*   `overlayRoot`  *(string)* location in the dom where the modal should be displayed... its a string
-*   `backdropColour`  *(string)* optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
-*   `maxHeight`  *(string)* maximum height of the modal
-*   `topPosition`  *(string)* the position of the modal on the top side of the screen
-*   `leftPosition`  *(string)* the position of the modal on the left side of the screen
+    *   `props.onHideOverlay` **[function][15]** this is a callback function that contains logic to hide the overlay on click
+    *   `props.children` **(ReactNode | [Array][18]\<ReactNode>)** this are the elements to display in the modal
+    *   `props.overlayRoot` **[string][14]** location in the dom where the modal should be displayed... its a string
+    *   `props.backdropColour` **[string][14]?** optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity (optional, default `"bg-dark-scrim/75"`)
+    *   `props.maxHeight` **[string][14]?** maximum height of the modal (optional, default `"max-h-[70%] sm:max-h-[60%]"`)
+    *   `props.topPosition` **[string][14]?** the position of the modal on the top side of the screen (optional, default `"top-[32vh] sm:top-[30vh]"`)
+    *   `props.leftPosition` **[string][14]?** the position of the modal on the left side of the screen (optional, default `"left-0 sm:left-[30%]"`)
+    *   `props.width`   (optional, default `"w-full sm:w-2/5"`)
 
 ## TextField
 
@@ -131,32 +126,22 @@ This is a textfield component styled according to google's material design speci
 
 ### Parameters
 
-*   `$0` **TextFieldProps**&#x20;
+*   `props` **[Object][13]** The properties for the TextField.
 
-    *   `$0.leading` &#x20;
-    *   `$0.trailing` &#x20;
-    *   `$0.supportingText` &#x20;
-    *   `$0.label` &#x20;
-    *   `$0.contentType` &#x20;
-    *   `$0.style` &#x20;
-    *   `$0.className` &#x20;
-    *   `$0.inputRef` &#x20;
-    *   `$0.onBlur` &#x20;
-    *   `$0.onChange` &#x20;
-    *   `$0.state` &#x20;
-    *   `$0.width`   (optional, default `"w-full"`)
-*   `leading`  this is an optional icon to be displayed at the start of the textfield
-*   `trailing`  this is an optional icon to be displayed at the end of the textfield
-*   `supportingText`  this is an optional text that further explain the textfield
-*   `label`  this specify the label of the textfield
-*   `contentType`  the type of content the textfield is holding. This could be button, checkbox, date, color etc.
-*   `className`  a field to pass in additional tailwind class to still the textfield
-*   `width`  the width of the textfield. This accept only tailwind classes
-*   `state`  react useState instance to manage the state of the textfield
-*   `onBlur`  callback function to call when the textfield lose focus
-*   `onChange`  callback function to call when the textfield content changes
+    *   `props.leading` **[string][14]?** This is an optional icon to be displayed at the start of the textfield
+    *   `props.trailing` **[string][14]?** This is an optional icon to be displayed at the end of the textfield
+    *   `props.supportingText` **[string][14]?** This is an optional text that further explain the textfield
+    *   `props.label` **[string][14]** This specify the label of the textfield
+    *   `props.contentType` **[string][14]** The type of content the textfield is holding. This could be button, checkbox, date, color etc.
+    *   `props.className` **[string][14]?** A field to pass in additional tailwind class to still the textfield
+    *   `props.onBlur` **[function][15]?** Callback function to call when the textfield lose focus
+    *   `props.onChange` **[function][15]?** Callback function to call when the textfield content changes
+    *   `props.state` **[Object][13]** An object consisting a react state and the dispatch function to set the state.
+    *   `props.width` **[string][14]?** The width of the textfield. This accept only tailwind classes (optional, default `"w-full"`)
+    *   `props.style` &#x20;
+    *   `props.inputRef` &#x20;
 
-Returns **any** textfield jsx element
+Returns **any** Textfield jsx element
 
 [1]: #button
 

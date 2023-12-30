@@ -810,7 +810,8 @@
   </div>
   
 
-  
+  <p>Modal</p>
+
     <div class='pre p1 fill-light mt0'>Modal</div>
   
   
@@ -828,8 +829,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(ModalProps)</code>
-	    
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The properties for the Modal.
+
           </div>
           
           <table class='mt1 mb2 fixed-table h5 col-12'>
@@ -846,71 +848,78 @@
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.onHideOverlay</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.onHideOverlay</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>this is a callback function that contains logic to hide the overlay on click
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.children</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.children</span> <code class='quiet'>(ReactNode | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;ReactNode>)</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>this are the elements to display in the modal
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.overlayRoot</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.overlayRoot</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>location in the dom where the modal should be displayed... its a string
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.backdropColour</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.backdropColour</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   
     (default <code>&quot;bg-dark-scrim/75&quot;</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.maxHeight</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.maxHeight</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   
     (default <code>&quot;max-h-[70%] sm:max-h-[60%]&quot;</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>maximum height of the modal
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.topPosition</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.topPosition</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   
     (default <code>&quot;top-[32vh] sm:top-[30vh]&quot;</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>the position of the modal on the top side of the screen
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.leftPosition</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.leftPosition</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   
     (default <code>&quot;left-0 sm:left-[30%]&quot;</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>the position of the modal on the left side of the screen
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.width</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.width</span> <code class='quiet'>any</code>
   
     (default <code>&quot;w-full sm:w-2/5&quot;</code>)
   </td>
@@ -921,76 +930,6 @@
               
             </tbody>
           </table>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>onHideOverlay</span> <code class='quiet'>(any)</code>
-	    <em>(func)</em>
- this is a callback function that contains logic to hide the overlay on click
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>children</span> <code class='quiet'>(any)</code>
-	    <em>(ReactNode | ReactNode[])</em>
- this are the elements to display in the modal
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>overlayRoot</span> <code class='quiet'>(any)</code>
-	    <em>(string)</em>
- location in the dom where the modal should be displayed... its a string
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>backdropColour</span> <code class='quiet'>(any)</code>
-	    <em>(string)</em>
- optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>maxHeight</span> <code class='quiet'>(any)</code>
-	    <em>(string)</em>
- maximum height of the modal
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>topPosition</span> <code class='quiet'>(any)</code>
-	    <em>(string)</em>
- the position of the modal on the top side of the screen
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>leftPosition</span> <code class='quiet'>(any)</code>
-	    <em>(string)</em>
- the position of the modal on the left side of the screen
-
-          </div>
           
         </div>
       
@@ -1051,8 +990,9 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(TextFieldProps)</code>
-	    
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The properties for the TextField.
+
           </div>
           
           <table class='mt1 mb2 fixed-table h5 col-12'>
@@ -1069,97 +1009,107 @@
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.leading</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.leading</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>This is an optional icon to be displayed at the start of the textfield
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.trailing</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.trailing</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>This is an optional icon to be displayed at the end of the textfield
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.supportingText</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.supportingText</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>This is an optional text that further explain the textfield
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.label</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.label</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>This specify the label of the textfield
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.contentType</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.contentType</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>The type of content the textfield is holding. This could be button, checkbox, date, color etc.
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.style</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.className</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>A field to pass in additional tailwind class to still the textfield
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.className</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.onBlur</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>?</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>Callback function to call when the textfield lose focus
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.inputRef</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.onChange</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>?</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>Callback function to call when the textfield content changes
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.onBlur</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.state</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>An object consisting a react state and the dispatch function to set the state.
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>$0.onChange</span> <code class='quiet'>any</code>
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.state</span> <code class='quiet'>any</code>
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.width</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.width</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
   
     (default <code>&quot;w-full&quot;</code>)
+  </td>
+  <td class='break-word'><span>The width of the textfield. This accept only tailwind classes
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.style</span> <code class='quiet'>any</code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.inputRef</span> <code class='quiet'>any</code>
   </td>
   <td class='break-word'><span></span></td>
 </tr>
@@ -1168,96 +1118,6 @@
               
             </tbody>
           </table>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>leading</span> <code class='quiet'>(any)</code>
-	    this is an optional icon to be displayed at the start of the textfield
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>trailing</span> <code class='quiet'>(any)</code>
-	    this is an optional icon to be displayed at the end of the textfield
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>supportingText</span> <code class='quiet'>(any)</code>
-	    this is an optional text that further explain the textfield
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>label</span> <code class='quiet'>(any)</code>
-	    this specify the label of the textfield
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>contentType</span> <code class='quiet'>(any)</code>
-	    the type of content the textfield is holding. This could be button, checkbox, date, color etc.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>className</span> <code class='quiet'>(any)</code>
-	    a field to pass in additional tailwind class to still the textfield
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>width</span> <code class='quiet'>(any)</code>
-	    the width of the textfield. This accept only tailwind classes
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>state</span> <code class='quiet'>(any)</code>
-	    react useState instance to manage the state of the textfield
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>onBlur</span> <code class='quiet'>(any)</code>
-	    callback function to call when the textfield lose focus
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>onChange</span> <code class='quiet'>(any)</code>
-	    callback function to call when the textfield content changes
-
-          </div>
           
         </div>
       
@@ -1270,7 +1130,7 @@
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>any</code>:
-        textfield jsx element
+        Textfield jsx element
 
       
     

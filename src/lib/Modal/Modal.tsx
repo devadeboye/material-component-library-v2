@@ -49,14 +49,16 @@ const ModalOverlay = ({
 };
 
 /**
+ * Modal
  *
- * @param onHideOverlay *(func)* this is a callback function that contains logic to hide the overlay on click
- * @param children *(ReactNode | ReactNode[])* this are the elements to display in the modal
- * @param overlayRoot *(string)* location in the dom where the modal should be displayed... its a string
- * @param backdropColour *(string)* optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
- * @param maxHeight *(string)* maximum height of the modal
- * @param topPosition *(string)* the position of the modal on the top side of the screen
- * @param leftPosition *(string)* the position of the modal on the left side of the screen
+ * @param {Object} props - The properties for the Modal.
+ * @param {function} props.onHideOverlay - this is a callback function that contains logic to hide the overlay on click
+ * @param {ReactNode | Array<ReactNode>} props.children - this are the elements to display in the modal
+ * @param {string} props.overlayRoot - location in the dom where the modal should be displayed... its a string
+ * @param {string} [props.backdropColour] - optional tailwindcss class to be used to style the backdrop colour. It should be passed with its opacity value e.g bg-dark-scrim/75. it defaults to black at 75% opacity
+ * @param {string} [props.maxHeight] - maximum height of the modal
+ * @param {string} [props.topPosition] - the position of the modal on the top side of the screen
+ * @param {string} [props.leftPosition] - the position of the modal on the left side of the screen
  *
  * @returns
  */
