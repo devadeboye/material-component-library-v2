@@ -83,7 +83,7 @@ const selectedIcon = (
  *
  * You need to keep this in mind when passing callbacks for each buttons
  *
- * @param {string} [props.edgeStyle=SegmentedButtonStyleEnum.round] - This tells how the corner of the button is going to be styled. This could be round or fully round
+ * @param {string} [props.edgeStyle=SegmentedButtonStyleEnum.round] - This tells how the corner of the button is going to be styled. This could be round or fully round.
  * - when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
  * - when you pass in fully round, the edge will be fully rounded. This uses the "full" class in tailwindcss
  *

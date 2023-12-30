@@ -70,7 +70,7 @@ To learn more about material design segmented button visit [https://m3.material.
         *   when numberOfSegments is three, only first, second and fifth buttons are shown.
         *   when numberOfSegments is four, only first, second, third and fifth buttons are shown.
         *   when numberOfSegments is five, all buttons are shown.You need to keep this in mind when passing callbacks for each buttons (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
-    *   `props.edgeStyle` **[string][14]** This tells how the corner of the button is going to be styled. This could be round or fully round*   when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
+    *   `props.edgeStyle` **[string][14]** This tells how the corner of the button is going to be styled. This could be round or fully round.*   when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
         *   when you pass in fully round, the edge will be fully rounded. This uses the "full" class in tailwindcss (optional, default `SegmentedButtonStyleEnum.round`)
     *   `props.activeButtonColour` **[string][14]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
     *   `props.buttonsConfiguration` **[Object][13]?** Configuration for each segment in the button.
