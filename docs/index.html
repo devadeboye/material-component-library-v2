@@ -58,44 +58,6 @@
               
                 
                 <li><a
-                  href='#dividerstyleenum'
-                  class=" toggle-sibling">
-                  DividerStyleEnum
-                  <span class='icon'>▸</span>
-                </a>
-                
-                <div class='toggle-target display-none'>
-                  
-                  <ul class='list-reset py1-ul pl1'>
-                    <li class='h5'><span>Static members</span></li>
-                    
-                      <li><a
-                        href='#dividerstyleenumfullwidth'
-                        class='regular pre-open'>
-                        .fullWidth
-                      </a></li>
-                    
-                    </ul>
-                  
-                  
-                  
-                  
-                </div>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#listitemconditionenum'
-                  class="">
-                  ListItemConditionEnum
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#list'
                   class="">
                   List
@@ -606,176 +568,6 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='dividerstyleenum'>
-      DividerStyleEnum
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Enum for list divider styles</p>
-
-    <div class='pre p1 fill-light mt0'>DividerStyleEnum</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Static Members</div>
-    <div class="clearfix">
-  
-    <div class='border-bottom' id='dividerstyleenumfullwidth'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>fullWidth</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>divider takes the whole width of the list item</p>
-
-    <div class='pre p1 fill-light mt0'>fullWidth</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-</div>
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='listitemconditionenum'>
-      ListItemConditionEnum
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Enum for the number of lines a list item should have</p>
-
-    <div class='pre p1 fill-light mt0'>ListItemConditionEnum</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='list'>
       List
     </h3>
@@ -924,7 +716,10 @@
     <tr>
   <td class='break-word'><span class='code bold'>props.dividerStyle.type</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span>this describe the type of divider. values can be full-width, inset, middle-inset
+  <td class='break-word'><span>this describe the type of divider; values can be full-width, inset, middle-inset.\
+<ul>
+<li>when dividerStyle type is fullWidth, the divider takes the whole width of the list item</li>
+</ul>
 </span></td>
 </tr>
 
@@ -958,7 +753,7 @@
   
     (default <code>()=&gt;{}</code>)
   </td>
-  <td class='break-word'><span>this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
+  <td class='break-word'><span>This is an optional function to call on each list item when clicked.\ The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
 </span></td>
 </tr>
 

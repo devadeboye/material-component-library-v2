@@ -4,11 +4,6 @@ import OneLineListItem from "./oneLineListItem";
 import TwoLineListItem from "./twoLineListItem";
 import ThreeLinesListItem from "./treeLinesListItem";
 
-/**
- * Enum for the number of lines a list item should have
- * @readonly
- * @enum {string}
- */
 export enum ListItemConditionEnum {
 	oneLine = "one-line", // TODO add documentation for this
 	twoLines = "two-lines", // TODO add documentation for this
@@ -52,10 +47,12 @@ interface ListProps<T> {
  * @param {string} props.items.[supportingText] - Text explaining the list item
  * @param {GenericType} props.items.meta - Additional information about the list item
  * @param {Object} props.dividerStyle - Additional information about the list item
- * @param {string} props.dividerStyle.type - this describe the type of divider. values can be full-width, inset, middle-inset
+ * @param {string} props.dividerStyle.type - this describe the type of divider; values can be full-width, inset, middle-inset.\
+ * - when dividerStyle type is fullWidth, the divider takes the whole width of the list item
+ * 
  * @param {boolean} props.dividerStyle.marginAfterDivider - this determines if there is going to be a margin after the divider or not
  * @param {string} [props.condition] - this describe the type of list item. it can be one-line, two-lines, three-lines
- * @param {function} [props.onListItemClick] - this is an optional function to call on each list item when clicked. The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
+ * @param {function} [props.onListItemClick] - This is an optional function to call on each list item when clicked.\ The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item.
  *
  * @returns {JSX.Element} The List component.
  */

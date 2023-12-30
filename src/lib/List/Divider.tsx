@@ -1,12 +1,6 @@
 import React from "react";
 
-/**
- * Enum for list divider styles
- * @readonly
- * @enum {string}
- */
 export enum DividerStyleEnum {
-	/** @description divider takes the whole width of the list item */
 	fullWidth = "full-width",
 	inset = "inset",
 	middleInset = "middle-inset",
