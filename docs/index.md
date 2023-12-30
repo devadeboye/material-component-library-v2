@@ -66,7 +66,7 @@ To learn more about material design segmented button visit [https://m3.material.
         *   when numberOfSegments is three, only first, second and fifth buttons are shown.
         *   when numberOfSegments is four, only first, second, third and fifth buttons are shown.
         *   when numberOfSegments is five, all buttons are shown.You need to keep this in mind when passing callbacks for each buttons (optional, default `SegmentedButtonNumberOfSegmentsEnum.two`)
-    *   `props.edgeStyle` **[string][14]** This tells how the corner of the button is going to be styled. This could be round or fully round.*   when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
+    *   `props.edgeStyle` **[string][14]** This tells how the corner of the button is going to be styled. This could be round or fully round*   when you pass in round, the edge will be slightly rounded. This uses the "lg" class in tailwindcss
         *   when you pass in fully round, the edge will be fully rounded. This uses the "full" class in tailwindcss (optional, default `SegmentedButtonStyleEnum.round`)
     *   `props.activeButtonColour` **[string][14]** The colour the active button/segment should have; defaults to the material secondary container colour token. (optional, default `"bg-light-secondaryContainer"`)
     *   `props.buttonsConfiguration` **[Object][13]?** Configuration for each segment in the button.
@@ -96,10 +96,10 @@ Lists are continuous, vertical indexes of text and images
     *   `props.divider` **[boolean][16]** This indicates if the list is going to be seperated by dividers
     *   `props.dividerStyle` **[Object][13]** Additional information about the list item
 
-        *   `props.dividerStyle.type` **[string][14]** this describe the type of divider; values can be full-width, inset, middle-inset.\\*   when dividerStyle type is fullWidth, the divider takes the whole width of the list item
+        *   `props.dividerStyle.type` **[string][14]** this describe the type of divider; values can be full-width, inset, middle-inset.*   when dividerStyle type is fullWidth, the divider takes the whole width of the list item
         *   `props.dividerStyle.marginAfterDivider` **[boolean][16]** this determines if there is going to be a margin after the divider or not
-    *   `props.condition` **[string][14]?** this describe the type of list item. it can be one-line, two-lines, three-lines (optional, default `ListItemConditionEnum.oneLine`)
-    *   `props.onListItemClick` **[function][15]?** This is an optional function to call on each list item when clicked.\ The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item. (optional, default `()=>{}`)
+    *   `props.condition` **[string][14]?** This describe the type of list item. it can be one-line, two-lines, three-lines (optional, default `ListItemConditionEnum.oneLine`)
+    *   `props.onListItemClick` **[function][15]?** This is an optional function to call on each list item when clicked.  The list item component is going to pass the id of the item on this component to your click event handler. This can be used to handle things like deleting list item. (optional, default `()=>{}`)
 
 Returns **JSX.Element** The List component.
 
