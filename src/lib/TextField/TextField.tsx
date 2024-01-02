@@ -45,12 +45,12 @@ interface TextFieldProps {
  * @param {string} props.label - This specify the label of the textfield
  * @param {string} props.contentType - The type of content the textfield is holding. This could be button, checkbox, date, color etc.
  * @param {string} [props.className] - A field to pass in additional tailwind class to still the textfield
- * @param {string} [props.width] - The width of the textfield. This accept only tailwind classes
+ * @param {string} [props.width="w-full"] - The width of the textfield. This accept only tailwind classes
  * @param {Object} props.state - An object consisting a react state and the dispatch function to set the state.
  * @param {function} [props.onBlur] - Callback function to call when the textfield lose focus
  * @param {function} [props.onChange] - Callback function to call when the textfield content changes
  *
- * @returns Textfield jsx element
+ * @returns {JSX.Element} The Textfield component.
  */
 const TextField = ({
 	leading,

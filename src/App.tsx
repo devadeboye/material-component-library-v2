@@ -14,7 +14,7 @@ import { inputTypeEnum } from "./lib/TextField/TextFieldInputBox";
 import { histories } from "./constant";
 import Slideshow from "./lib/slideShow/slideShow";
 import Modal from "./lib/Modal/Modal";
-import Fab from "./lib/Button/Fab";
+import Fab, { FabTypeEnum } from "./lib/Button/Fab";
 import MoreVertIcon from "./assets/svg/more_vert_24px.svg";
 
 type HistoryType = (typeof histories)[0];
@@ -57,6 +57,7 @@ function App() {
 		},
 	});
 	const [showModal, setShowModal] = useState(false);
+	const [fabState, setFabState] = useState({ ripple: false });
 
 	function showModalClickHandler(status: boolean) {
 		setShowModal(status);
@@ -241,7 +242,41 @@ function App() {
 			<br></br>
 
 			<div>
-				<Fab icon={MoreVertIcon}></Fab>
+				<div>Small FAB</div>
+				<Fab
+					icon={MoreVertIcon}
+					fabType={FabTypeEnum.SmallFAB}
+					buttonState={{ value: fabState, updater: setFabState }}
+				></Fab>
+				<br />
+				<br />
+
+				<div>FAB</div>
+				<Fab
+					icon={MoreVertIcon}
+					fabType={FabTypeEnum.FAB}
+					buttonState={{ value: fabState, updater: setFabState }}
+				></Fab>
+				<br />
+				<br />
+
+				<div>Large FAB</div>
+				<Fab
+					icon={MoreVertIcon}
+					fabType={FabTypeEnum.LargeFAB}
+					buttonState={{ value: fabState, updater: setFabState }}
+				></Fab>
+				<br />
+				<br />
+
+				<div>Extended FAB</div>
+				<Fab
+					icon={MoreVertIcon}
+					fabType={FabTypeEnum.ExtendedFAB}
+					buttonState={{ value: fabState, updater: setFabState }}
+				></Fab>
+				<br />
+				<br />
 			</div>
 		</div>
 	);
