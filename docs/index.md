@@ -98,8 +98,8 @@ Lists are continuous, vertical indexes of text and images
 
         *   `props.items.id` **([string][14] | [number][19])** The id for each list item. This is necessary incases where you need to reference each item in the list uniquely
         *   `props.items.headline` **[string][14]** This is the main content in the list item
-        *   `props.items.null` **[string][14]** \[overline] - An overline drawing attention to the list item
-        *   `props.items.null` **[string][14]** \[supportingText] - Text explaining the list item
+        *   `props.items.overline` **[string][14]?** An overline drawing attention to the list item
+        *   `props.items.supportingText` **[string][14]?** Text explaining the list item
         *   `props.items.meta` **GenericType** Additional information about the list item
     *   `props.leading` **[string][14]** Icon to display at the beginging of each list item. Its optional and it defaults to empty string
     *   `props.trailing` **[string][14]** Icon to display at the end of each list item. Its optional and it defaults to empty string
