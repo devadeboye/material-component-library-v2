@@ -43,11 +43,11 @@ interface ListProps<T> {
  * @param {Array<ItemDto>} props.items - is the array of items to display in the list
  * @param {string | number} props.items.id - The id for each list item. This is necessary incases where you need to reference each item in the list uniquely
  * @param {string} props.items.headline - This is the main content in the list item
- * @param {string} props.items.[overline] - An overline drawing attention to the list item
- * @param {string} props.items.[supportingText] - Text explaining the list item
+ * @param {string} [props.items.overline] - An overline drawing attention to the list item
+ * @param {string} [props.items.supportingText] - Text explaining the list item
  * @param {GenericType} props.items.meta - Additional information about the list item
  * @param {Object} props.dividerStyle - Additional information about the list item
- * @param {string} props.dividerStyle.type - this describe the type of divider; values can be full-width, inset, middle-inset.  
+ * @param {string} props.dividerStyle.type - this describe the type of divider; values can be full-width, inset, middle-inset.
  * - when dividerStyle type is fullWidth, the divider takes the whole width of the list item
  *
  * @param {boolean} props.dividerStyle.marginAfterDivider - this determines if there is going to be a margin after the divider or not
