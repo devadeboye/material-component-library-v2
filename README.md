@@ -43,14 +43,24 @@ Returns **JSX.Element** The button component.
 
 Floating action buttons (FABs) help people take primary actions
 
+Note: Label is only shown in extended FAB
+
 Type: React.FC\<FabProps>
 
 ### Parameters
 
 *   `props` **[Object][13]** The properties for the button.
 
-    *   `props.icon` **[string][14]?** The icon to display on the button.
+    *   `props.icon` **[string][14]** The icon to display on the button.
     *   `props.fabType` **[string][14]** The type of FAB to render (optional, default `FabTypeEnum.FAB`)
+    *   `props.buttonColour` **[string][14]** Colour of the button (optional, default `""`)
+    *   `props.buttonTextColour` **[string][14]** Colour of text on the button (optional, default `""`)
+    *   `props.buttonState` **[Object][13]** Object to manage the state of the FAB
+
+        *   `props.buttonState.value` **[Object][13]** React state instance of the FAB
+        *   `props.buttonState.updater` **[Function][15]** React dispatch function to update FAB state
+    *   `props.onClick` **[Function][15]?** Function to call when the FAB is clicked (optional, default `()=>{}`)
+    *   `props.label`   (optional, default `"Extended FAB"`)
     *   `props.buttonProps` **...any**&#x20;
 
 Returns **JSX.Element** The FAB component.
@@ -141,11 +151,11 @@ This is a textfield component styled according to google's material design speci
     *   `props.onBlur` **[function][15]?** Callback function to call when the textfield lose focus
     *   `props.onChange` **[function][15]?** Callback function to call when the textfield content changes
     *   `props.state` **[Object][13]** An object consisting a react state and the dispatch function to set the state.
-    *   `props.width` **[string][14]?** The width of the textfield. This accept only tailwind classes (optional, default `"w-full"`)
+    *   `props.width` **[string][14]** The width of the textfield. This accept only tailwind classes (optional, default `"w-full"`)
     *   `props.style` &#x20;
     *   `props.inputRef` &#x20;
 
-Returns **any** Textfield jsx element
+Returns **JSX.Element** The Textfield component.
 
 [1]: #button
 
